@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{699D1C81-762D-4EBF-9B61-8F994E57A1D0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Havasu_REFDSS.My.MyApplication</StartupObject>
+    <RootNamespace>Havasu_REFDSS</RootNamespace>
+    <AssemblyName>Havasu_REFDSS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\ClickOnceDeploymentPackage\Software\HavasuDSS_deploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\localhost\c%24\temp\HavasuDSS_deploy\</InstallUrl>
+    <ProductName>Havasu REFDSS</ProductName>
+    <PublisherName>Fort Collins Science Center</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Leetown|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Leetown\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Delaware_DSS_x64|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Delaware_DSS_x64\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Leetown|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Leetown\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Delaware_DSS_x64|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Delaware_DSS_x64\</OutputPath>
+    <DocumentationFile>Havasu_REFDSS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\USGS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'debug2|x86'">
+    <OutputPath>bin\x86\debug2\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'debug2|x64'">
+    <OutputPath>bin\x64\debug2\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9F23AE98B5E3048C67D04503F53BECBA96B9AB98</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>REFDSS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\AxInterop.MapWinGIS.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\Interop.MapWinGIS.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\zip-v1.9\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="MapWindow.Controls">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\MapWindow.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="MapWindow.Interfaces">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\MapWindow.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MapWinGeoProc">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\MapWinGeoProc.dll</HintPath>
+    </Reference>
+    <Reference Include="MapWinInterfaces">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\MapWinInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MapWinUtility">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\MapWinUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ServiceStack">
+      <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\packages\ServiceStack.Common.3.9.11\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Common.3.9.11\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.14\lib\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.14\lib\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\packages\ServiceStack.Redis.3.9.11\lib\net35\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.ServiceInterface">
+      <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.4.0.40\lib\net40\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\System.Data.SQLite\2010\bin\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.77.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\System.Data.SQLite\2010\bin\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\DockPanel_2_9_0\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ChartDisplayControl.Designer.vb">
+      <DependentUpon>ChartDisplayControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChartDisplayControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clsMathParser.vb" />
+    <Compile Include="AggHabitatGraphForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowVsHabitatChartForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportScenarioProgress.Designer.vb">
+      <DependentUpon>ImportScenarioProgress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportScenarioProgress.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SegmentMapLegendForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RawDataForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScienceBaseDownloader.Designer.vb">
+      <DependentUpon>ScienceBaseDownloader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScienceBaseDownloader.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeToTheDSS.Designer.vb">
+      <DependentUpon>WelcomeToTheDSS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeToTheDSS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HabitatGraphForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HabGenProgressBar.Designer.vb">
+      <DependentUpon>HabGenProgressBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HabGenProgressBar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphManager.vb" />
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Application1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDisplayData.Designer.vb">
+      <DependentUpon>SelectDisplayData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDisplayData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeriesFormater.Designer.vb">
+      <DependentUpon>SeriesFormater.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SeriesFormater.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemWideMetricForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HabitatSuitibilityGeneratorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManager.vb" />
+    <Compile Include="HydrographManager.vb" />
+    <Compile Include="MapManager.vb" />
+    <Compile Include="ThreeStateTreeview.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilities.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HydrographGraphForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverviewMapForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SegmentMapForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChartDisplayControl.resx">
+      <DependentUpon>ChartDisplayControl.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AggHabitatGraphForm.resx">
+      <DependentUpon>AggHabitatGraphForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowVsHabitatChartForm.resx">
+      <DependentUpon>FlowVsHabitatChartForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportScenarioProgress.resx">
+      <DependentUpon>ImportScenarioProgress.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SegmentMapLegendForm.resx">
+      <DependentUpon>SegmentMapLegendForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RawDataForm.resx">
+      <DependentUpon>RawDataForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HabitatGraphForm.resx">
+      <DependentUpon>HabitatGraphForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScienceBaseDownloader.resx">
+      <DependentUpon>ScienceBaseDownloader.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectDisplayData.resx">
+      <DependentUpon>SelectDisplayData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeriesFormater.resx">
+      <DependentUpon>SeriesFormater.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemWideMetricForm.resx">
+      <DependentUpon>SystemWideMetricForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HabitatSuitibilityGeneratorForm.resx">
+      <DependentUpon>HabitatSuitibilityGeneratorForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HydrographGraphForm.resx">
+      <DependentUpon>HydrographGraphForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverviewMapForm.resx">
+      <DependentUpon>OverviewMapForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SegmentMapForm.resx">
+      <DependentUpon>SegmentMapForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HabGenProgressBar.resx">
+      <DependentUpon>HabGenProgressBar.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreeStateTreeview.resx">
+      <DependentUpon>ThreeStateTreeview.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeToTheDSS.resx">
+      <DependentUpon>WelcomeToTheDSS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application1.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\80x22_green.gif" />
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="REFDSS_TemporaryKey.pfx" />
+    <None Include="Resources\ButtonImages\db_add-2.png" />
+    <None Include="Resources\ButtonImages\db_update-2.png" />
+    <None Include="Resources\ButtonImages\document-save-5.png" />
+    <None Include="Resources\ButtonImages\folderIn.png" />
+    <None Include="Resources\ButtonImages\folderOut.png" />
+    <None Include="Resources\ButtonImages\document-decrypt.png" />
+    <None Include="Resources\ButtonImages\DownArrow.png" />
+    <None Include="Resources\ButtonImages\applications-development.png" />
+    <None Include="Resources\ButtonImages\document-open-2.png" />
+    <None Include="Resources\arrow-right.png" />
+    <Content Include="Resources\ButtonImages\go-next-2.ico" />
+    <Content Include="Resources\ButtonImages\go-next-2.png" />
+    <Content Include="Resources\ButtonImages\go-previous-2.ico" />
+    <Content Include="Resources\ButtonImages\go-previous-2.png" />
+    <Content Include="Resources\ButtonImages\info.png" />
+    <None Include="Resources\ButtonImages\insert-table.png" />
+    <None Include="Resources\ButtonImages\L.png" />
+    <None Include="Resources\ButtonImages\map.png" />
+    <None Include="Resources\ButtonImages\insert-table2.png" />
+    <Content Include="Resources\ButtonImages\media-playback-pause-2.ico" />
+    <Content Include="Resources\ButtonImages\media-playback-pause-2.png" />
+    <Content Include="Resources\ButtonImages\media-playback-start-2.ico" />
+    <Content Include="Resources\ButtonImages\media-playback-start-2.png" />
+    <None Include="Resources\ButtonImages\object-unlocked.png" />
+    <None Include="Resources\ButtonImages\object-locked.png" />
+    <None Include="Resources\ButtonImages\office-chart-bar-stacked.png" />
+    <Content Include="Resources\ButtonImages\office-chart-line.png" />
+    <None Include="Resources\ButtonImages\office-chart-pie.png" />
+    <Content Include="Resources\ButtonImages\pan.png" />
+    <None Include="Resources\ButtonImages\T.png" />
+    <Content Include="Resources\ButtonImages\world.png" />
+    <Content Include="Resources\ButtonImages\ZoomFullExtent.png" />
+    <Content Include="Resources\ButtonImages\ZoomIn.png" />
+    <Content Include="Resources\ButtonImages\ZoomOut.png" />
+    <None Include="Resources\cursor-mouse.png" />
+    <None Include="Resources\cursor-mouse2.png" />
+    <None Include="Resources\cursor-mouse3.png" />
+    <Content Include="Resources\go-previous-exttent.bmp" />
+    <Content Include="Resources\info.png" />
+    <None Include="Resources\layout-add.png" />
+    <None Include="Resources\object-locked.png" />
+    <None Include="Resources\office-chart-bar.png" />
+    <None Include="Resources\office-chart-scatter.png" />
+    <None Include="Resources\legend.png" />
+    <Content Include="Resources\SpashScreenGraphic.jpg" />
+    <Content Include="Resources\ThreeState\Checked.Bmp" />
+    <Content Include="Resources\ThreeState\Checked.ico" />
+    <Content Include="Resources\ThreeState\Indeterminated.Bmp" />
+    <Content Include="Resources\ThreeState\Indeterminated.ico" />
+    <Content Include="Resources\ThreeState\UnChecked.Bmp" />
+    <Content Include="Resources\ThreeState\UnChecked.ico" />
+    <Content Include="Resources\USGS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

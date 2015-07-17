@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="InputDataDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\InitialData\Inputs</Value>
+    </Setting>
+    <Setting Name="OutputDataDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NA</Value>
+    </Setting>
+    <Setting Name="ConfigXML" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NA</Value>
+    </Setting>
+    <Setting Name="SQliteDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NA</Value>
+    </Setting>
+    <Setting Name="RelativePaths" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ApplicationTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Havasu River Decision Support System</Value>
+    </Setting>
+    <Setting Name="WelcomeTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Welcome to the Havasu REFDSS</Value>
+    </Setting>
+    <Setting Name="verbose" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SessionDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\InitialData\DefaultSessionDirectoryWorkingCopy</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
