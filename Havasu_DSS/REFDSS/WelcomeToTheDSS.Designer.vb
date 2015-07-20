@@ -55,11 +55,10 @@ Partial Class WelcomeToTheDSS
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(439, 192)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(144, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(171, 13)
         Me.LinkLabel1.TabIndex = 1
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "WaterSmart on ScienceBase"
-        Me.LinkLabel1.Visible = False
+        Me.LinkLabel1.Text = "Havasu REFDSS on ScienceBase"
         '
         'Label2
         '
@@ -90,7 +89,6 @@ Partial Class WelcomeToTheDSS
         Me.btnOK.TabIndex = 4
         Me.btnOK.Text = "Download Initial Data"
         Me.btnOK.UseVisualStyleBackColor = True
-        Me.btnOK.Visible = False
         '
         'Button1
         '
@@ -121,7 +119,6 @@ Partial Class WelcomeToTheDSS
         Me.Label5.Size = New System.Drawing.Size(233, 18)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "1) Auto download (recommended)"
-        Me.Label5.Visible = False
         '
         'Label6
         '
@@ -132,7 +129,6 @@ Partial Class WelcomeToTheDSS
         Me.Label6.Size = New System.Drawing.Size(413, 18)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "2) Manual download from the following link (See user manual)"
-        Me.Label6.Visible = False
         '
         'Label7
         '
@@ -143,7 +139,6 @@ Partial Class WelcomeToTheDSS
         Me.Label7.Size = New System.Drawing.Size(360, 18)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "3) Obtain the data from another user or the developer."
-        Me.Label7.Visible = False
         '
         'Label8
         '
@@ -155,7 +150,6 @@ Partial Class WelcomeToTheDSS
         Me.Label8.Text = "The application will download the required data as needed from USGS ScienceBase. " & _
     " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Note: You must be connected to the internet on a reasonably fast connection f" & _
     "or this to work."
-        Me.Label8.Visible = False
         '
         'Label9
         '
@@ -165,7 +159,6 @@ Partial Class WelcomeToTheDSS
         Me.Label9.Size = New System.Drawing.Size(493, 39)
         Me.Label9.TabIndex = 11
         Me.Label9.Text = resources.GetString("Label9.Text")
-        Me.Label9.Visible = False
         '
         'Label10
         '
@@ -175,7 +168,6 @@ Partial Class WelcomeToTheDSS
         Me.Label10.Size = New System.Drawing.Size(325, 39)
         Me.Label10.TabIndex = 12
         Me.Label10.Text = "Obtain an existing set of inputs from another user or the developer.  " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Label10.Visible = False
         '
         'Label11
         '
@@ -185,7 +177,6 @@ Partial Class WelcomeToTheDSS
         Me.Label11.Size = New System.Drawing.Size(612, 52)
         Me.Label11.TabIndex = 13
         Me.Label11.Text = resources.GetString("Label11.Text")
-        Me.Label11.Visible = False
         '
         'WelcomeToTheDSS
         '

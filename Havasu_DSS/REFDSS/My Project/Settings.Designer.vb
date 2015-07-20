@@ -162,6 +162,70 @@ Namespace My
                 Me("SessionDirectory") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad349ce4b066a2492409b3?name=InputD"& _ 
+            "ataBare.zip")>  _
+        Public Property SB_bareInputs() As String
+            Get
+                Return CType(Me("SB_bareInputs"),String)
+            End Get
+            Set
+                Me("SB_bareInputs") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad4637e4b066a249242168?name=Backgr"& _ 
+            "ound_nc1m.tif")>  _
+        Public Property SB_Background() As String
+            Get
+                Return CType(Me("SB_Background"),String)
+            End Get
+            Set
+                Me("SB_Background") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad531be4b066a249242173?name=inputs"& _ 
+            "_compressed.zip")>  _
+        Public Property SB_InputRasters() As String
+            Get
+                Return CType(Me("SB_InputRasters"),String)
+            End Get
+            Set
+                Me("SB_InputRasters") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/folder/55ad3417e4b066a2492409ad")>  _
+        Public Property SB_Home() As String
+            Get
+                Return CType(Me("SB_Home"),String)
+            End Get
+            Set
+                Me("SB_Home") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad587be4b066a249242180?name=Full.z"& _ 
+            "ip")>  _
+        Public Property SB_Full() As String
+            Get
+                Return CType(Me("SB_Full"),String)
+            End Get
+            Set
+                Me("SB_Full") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -29,5 +29,20 @@
     <Setting Name="SessionDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)">Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\InitialData\DefaultSessionDirectoryWorkingCopy</Value>
     </Setting>
+    <Setting Name="SB_bareInputs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55ad349ce4b066a2492409b3?name=InputDataBare.zip</Value>
+    </Setting>
+    <Setting Name="SB_Background" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55ad4637e4b066a249242168?name=Background_nc1m.tif</Value>
+    </Setting>
+    <Setting Name="SB_InputRasters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55ad531be4b066a249242173?name=inputs_compressed.zip</Value>
+    </Setting>
+    <Setting Name="SB_Home" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/folder/55ad3417e4b066a2492409ad</Value>
+    </Setting>
+    <Setting Name="SB_Full" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55ad587be4b066a249242180?name=Full.zip</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

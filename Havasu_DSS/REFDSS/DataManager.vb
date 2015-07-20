@@ -1380,7 +1380,7 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
             If max = maxVal Then max = 9999
             Utilities.insertBreak(max, min, uColor, uColor, slabel, mwColorScheme)
             'y = variableNode.SelectSingleNode("yValue").FirstChild.Value
-            min = max
+            min = max - 0.00000001
         Next
 
         'mwColorScheme.NoDataColor = Convert.ToUInt32(RGB(255, 0, 0))

@@ -35,17 +35,20 @@ Public Class ScienceBaseDownloader
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        System.Diagnostics.Process.Start("http://www.fort.usgs.gov/WebApps/SciBase.asp")
+        System.Diagnostics.Process.Start("https://www.sciencebase.gov/about/")
     End Sub
 
     Public Sub StartDownload()
 
         lblCurrentlyDownloading.Text = "Downloading data for:  " & strSegment ' & " " & strTreatment
 
+        'Step one download the 
+
+
         Dim url As String
         If strSegment = "CoreData" Then
             'url = My.Settings.ScienceBaseCoreDataLink
-            url = getCoreURL()
+            url = My.Settings.SB_Full
         Else
             url = parentMainForm.mainDataManager.getInputURL(strSegment, strTreatment)
         End If
@@ -57,7 +60,7 @@ Public Class ScienceBaseDownloader
         End If
 
         If strSegment = "CoreData" Then
-            downloadzipfile = rootDownloadFolder + "\CoreWorkspace.zip"
+            downloadzipfile = rootDownloadFolder + "\Full.zip"
         Else
             downloadzipfile = rootDownloadFolder + "\" + strSegment + parentMainForm.mainDataManager.getTreatmentAbbrev(strSegment, strTreatment) + ".zip"
         End If
