@@ -1175,7 +1175,7 @@ Public Class DataManager
     Public Function getCategoricalValueFromLabel(strCovariate As String, strLabel As String) As String
         Dim xpath As String
 
-        xpath = "SmartRiverConfig/Covariates/Covariate[Name='" & strCovariate & "']/ColorScheme/Break[label='" & strLabel & "']/max"
+        xpath = "SmartRiverConfig/Covariates/Covariate[Name='" & strCovariate & "']/ColorScheme/Break[label='" & strLabel & "']/value"
         
         Dim n As XmlNode = config.SelectSingleNode(xpath)
         Return n.FirstChild.Value

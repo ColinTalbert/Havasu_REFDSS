@@ -30,7 +30,7 @@
     <InstallUrl>https://raw.githubusercontent.com/ColinTalbert/Havasu_REFDSS/master/DeploymentPackage/Software/HavasuDSS_deploy/</InstallUrl>
     <ProductName>Havasu_REFDSS</ProductName>
     <PublisherName>Fort Collins Science Center</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -578,8 +578,10 @@
     <None Include="Resources\cursor-mouse.png" />
     <None Include="Resources\cursor-mouse2.png" />
     <None Include="Resources\cursor-mouse3.png" />
+    <None Include="Resources\default_config.bmp" />
     <Content Include="Resources\go-previous-exttent.bmp" />
     <Content Include="Resources\info.png" />
+    <None Include="Resources\InputData.zip" />
     <None Include="Resources\layout-add.png" />
     <None Include="Resources\object-locked.png" />
     <None Include="Resources\office-chart-bar.png" />
