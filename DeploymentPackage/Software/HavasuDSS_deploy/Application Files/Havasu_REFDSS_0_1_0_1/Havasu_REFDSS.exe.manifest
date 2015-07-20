@@ -43,11 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.Data.SQLite" version="1.0.66.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="amd64" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.MapWinGIS.dll" size="61440">
       <assemblyIdentity name="AxInterop.MapWinGIS" version="4.8.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -60,14 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Havasu_REFDSS.exe" size="858024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Havasu_REFDSS.exe" size="1535912">
       <assemblyIdentity name="Havasu_REFDSS" version="1.1.3.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e9hhEWHMM42Mr6ZHtwBLP7jKVv1VURj9iSdG7o4zCr0=</dsig:DigestValue>
+        <dsig:DigestValue>72RBl64n8hslAOtwKAAu1GU4MNchQF6zyHRizF3HSIc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.MapWinGIS.dll" size="258048">
+      <assemblyIdentity name="Interop.MapWinGIS" version="4.8.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>cetLH1oPX8LW9ybSmmmU8FTqEXppQKzJILWgb7zUDyY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -80,66 +87,6 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>Oz5UFoLkjz/Shy+FoGJ42i8+eHfulW2om5DXMqHqoL0=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MapWindow.Controls.dll" size="190976">
-      <assemblyIdentity name="MapWindow.Controls" version="4.8.6.22738" language="neutral" processorArchitecture="amd64" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nmNA7fX/kjHyeCS0r/jDvhTXhFz9cGZ8+KbbpsTc1vc=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MapWindow.Interfaces.dll" size="61440">
-      <assemblyIdentity name="MapWindow.Interfaces" version="1.0.0.0" publicKeyToken="14BA77D91DAE5597" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CkaXTfhgbh5B0lUtitaWAlj6KN9UDqprzmEM0uBIg+k=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MapWinGeoProc.dll" size="1093632">
-      <assemblyIdentity name="MapWinGeoProc" version="4.8.6.22735" language="neutral" processorArchitecture="amd64" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IXyIQYZgfQmq1GDcVb3T0nVJv1CNyjQqCgAdbZBzys0=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MapWinInterfaces.dll" size="131072">
-      <assemblyIdentity name="MapWinInterfaces" version="4.8.6.22730" language="neutral" processorArchitecture="amd64" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6mD4K21SqNljh8QLZRn1uvTICu/zY5a1QOOUqkLKI3w=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MapWinUtility.dll" size="76288">
-      <assemblyIdentity name="MapWinUtility" version="4.8.6.22727" language="neutral" processorArchitecture="amd64" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TxE9kMmKZEsd85/b2NBHcW2blioe+uVGsyFJwChtSfg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -573,4 +520,4 @@
       <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
     </application>
   </compatibility>
-<publisherIdentity name="CN=GS\talbertc" issuerKeyHash="81cf846acc899dcda7d0a042a288e2dc2d31be8f" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>g1P/e9s3mpDXaQXMcdCBHXozgB1/Vnbj7ckOZRv9ZME=</DigestValue></Reference></SignedInfo><SignatureValue>bZevCfcdOCQHfWHpe/FwVEsRAia0uXN9UWrXPGOehoBZde99F3NuAsybHjmkKpjudrTUFBFAGHxhrUmopytbbZR3fO1EO18I9OccivYZXcO/VPMxkWLtZUDuQNuvevC5LVj9mV/n80eXZvUMsUje2SalaRnsG0gx19jgOPuOT+M=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>qdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="c164fd1b650ec9ede376567f1d80337a1d81d071cc0569d7909a37db7bff5383" Description="" Url=""><as:assemblyIdentity name="Havasu_REFDSS.exe" version="0.1.0.1" publicKeyToken="de5a3441122120b4" language="neutral" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=GS\talbertc</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>c+jx87GIs2C+eoXJz89DzsrQzjL39H4np055Up51VPw=</DigestValue></Reference></SignedInfo><SignatureValue>VEjjcrLJg2scxnMGTLYi47TNhJTM+Odw49el6h6mU0lwYcJoPJbUH9eI0oC87V3ldmPWRZBsxvmejV8qB2h7y20vqELDe56tUjnWaZBtlJ8qSVmhfkfbrebTpZ33hHIqFLYp4W6oCt7//trrIeLOG5RnPG9mxxHHvNZEwWzmzqI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>qdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBxTCCAS6gAwIBAgIQPBHfWp7nY6BIdB2FihvdMzANBgkqhkiG9w0BAQsFADAhMR8wHQYDVQQDHhYARwBTAFwAdABhAGwAYgBlAHIAdABjMB4XDTE1MDcxNDIwMDI1NFoXDTE2MDcxNDAyMDI1NFowITEfMB0GA1UEAx4WAEcAUwBcAHQAYQBsAGIAZQByAHQAYzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAqdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5ECAwEAATANBgkqhkiG9w0BAQsFAAOBgQAJJqa8GnR7lgB2bnX/D+VjL6vzMr+JRgg7fdlbZDE94teZhkgrY71acleqMLuQ0cylyYeAniKyB35DMRyndagGR967+aJtd2wXXoBZ8KBHhJmZT1R41/Vjgi/dgLWBU+POHXkaH3KJ7yOScCtr2NBaW1LGO274XGfzwi4fugDjDg==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=GS\talbertc" issuerKeyHash="81cf846acc899dcda7d0a042a288e2dc2d31be8f" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>oclth0hT93qkNuHoViPCjZ5nDjYnuuhHui9ZGFHRyBA=</DigestValue></Reference></SignedInfo><SignatureValue>k9KCrys7rXViB09eUz6WqmQswQek3leaal3tQ1ANcbuAiObxfFtneApbalBjRTCznwEV99PHA6rp5JwMQarlmHPG9tNkrQQVZ7pFB/yqSjmiaLLCHLt0NFsPDfQTN1DynDcXZGArC29coAbvCYKW6F8qdu+CFZ42Ry0+00gIl40=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>qdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="10c8d15118592fba47e8ba27360e679e8dc22356e8e136a47af75348876dc9a1" Description="" Url=""><as:assemblyIdentity name="Havasu_REFDSS.exe" version="0.1.0.1" publicKeyToken="de5a3441122120b4" language="neutral" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=GS\talbertc</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>IpXUU52Fgs0gURmJnzByZRDb+fbFU1wEbbamlU4bcw4=</DigestValue></Reference></SignedInfo><SignatureValue>d/g9EGDZso48McWoD4onvy6oAndQKCiWiBQx1J+sCGTCUW6BJhoBItoRo+axAfvY5QwzkpaV/i6oj9OWGagT7k1D2m2M/NgfmzmKlU+rHFRozXzuBGP+Z7wGAbSbzrsje5dTCgSC4xQVMRj5eLLKhvfbD0ApfpqCTRn2ONBPim4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>qdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBxTCCAS6gAwIBAgIQPBHfWp7nY6BIdB2FihvdMzANBgkqhkiG9w0BAQsFADAhMR8wHQYDVQQDHhYARwBTAFwAdABhAGwAYgBlAHIAdABjMB4XDTE1MDcxNDIwMDI1NFoXDTE2MDcxNDAyMDI1NFowITEfMB0GA1UEAx4WAEcAUwBcAHQAYQBsAGIAZQByAHQAYzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAqdubaCaBP2K/x92ow1hBelNju5Br7zSP9ALqlTjZFZFExYcAZcom4wZZs5mewCgw/RbIsm/7gT4V1lxLCJURHrZQ+UDwOoA6+H+Y5tshQCsBLJhOfpgn4Knax90ErM5euF0Hg5zHKt8ET8Oo7nW30ZdILRPiFYx/f+ae7CV3h5ECAwEAATANBgkqhkiG9w0BAQsFAAOBgQAJJqa8GnR7lgB2bnX/D+VjL6vzMr+JRgg7fdlbZDE94teZhkgrY71acleqMLuQ0cylyYeAniKyB35DMRyndagGR967+aJtd2wXXoBZ8KBHhJmZT1R41/Vjgi/dgLWBU+POHXkaH3KJ7yOScCtr2NBaW1LGO274XGfzwi4fugDjDg==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

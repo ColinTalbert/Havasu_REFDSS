@@ -121,17 +121,11 @@
   <data name="object-unlocked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\object-unlocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="applications-development" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\applications-development.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="insert-table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\insert-table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cursor-mouse2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cursor-mouse2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="office-chart-bar-stacked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\office-chart-bar-stacked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,17 +133,20 @@
   <data name="arrow-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="media_playback_pause_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\buttonimages\media-playback-pause-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="document-save-5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\document-save-5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cursor-mouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cursor-mouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SpashScreenGraphic_havasu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpashScreenGraphic_havasu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="go_next_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\go-next-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DownArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\DownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="office-chart-scatter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\office-chart-scatter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="object-unlocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\object-unlocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,20 +157,23 @@
   <data name="document-decrypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\document-decrypt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="media_playback_pause_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\buttonimages\media-playback-pause-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DownArrow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\DownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SpashScreenGraphic_havasu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpashScreenGraphic_havasu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="go-previous-exttent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\go-previous-exttent.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DownArrow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\DownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="office-chart-bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\office-chart-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="db_add-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\db_add-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ZoomFullExtent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\buttonimages\zoomfullextent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="office-chart-pie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\office-chart-pie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="db_update-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\db_update-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,8 +187,8 @@
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folderIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\folderIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cursor-mouse2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cursor-mouse2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZoomOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\zoomout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +196,17 @@
   <data name="ZoomIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\zoomin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DownArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\DownArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="insert-table2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\insert-table2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cursor-mouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cursor-mouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folderOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\folderOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="media_playback_start_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\media-playback-start-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,14 +217,11 @@
   <data name="office-chart-line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\office-chart-line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="layout-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layout-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cursor-mouse3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cursor-mouse3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="office-chart-bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\office-chart-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="office-chart-scatter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\office-chart-scatter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="object-locked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\object-locked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="object-locked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\object-locked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,25 +235,28 @@
   <data name="go_previous_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\buttonimages\go-previous-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="object-locked1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\object-locked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="folderIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\folderIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="layout-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\layout-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="legend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\legend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="go-previous-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\go-previous-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folderOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\folderOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ZoomFullExtent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\buttonimages\zoomfullextent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ButtonImages\map.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="office-chart-pie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButtonImages\office-chart-pie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="applications-development" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButtonImages\applications-development.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cursor-mouse3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cursor-mouse3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="legend" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\legend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SpashScreenGraphic_havasu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpashScreenGraphic_havasu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
