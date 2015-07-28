@@ -205,9 +205,28 @@ Public Class MapManager
             If parentMainForm.mainDataManager.isCovariateCategorical(strCovariate) Then
                 msg += strCovariate + ":  " + parentMainForm.mainDataManager.getCategoricalValueLabel(strCovariate, Str(CDbl(getPixelValue(projx, projy, strFileName)))) + vbCrLf
             Else
-                msg += strCovariate + ":  " + CDbl(getPixelValue(projx, projy, strFileName)).ToString("N2") + vbCrLf
-            End If
+                Dim tmpPixValue As Double = CDbl(getPixelValue(projx, projy, strFileName))
+                If Not parentMainForm.mainDataManager.curUnits = "Metric" Then
+                    tmpPixValue *= parentMainForm.mainDataManager.variableConversionFactor(strCovariate)
+                End If
 
+                Dim covariateLabel As String = strCovariate
+                If strCovariate = "Depth" And tmpPixValue < 0 Then
+                    tmpPixValue *= -1
+                    covariateLabel = "Elevation above water surface"
+                End If
+
+                Dim stringFormat As String
+                If tmpPixValue > -3 And tmpPixValue < 3 Then
+                    stringFormat = "N2"
+                ElseIf tmpPixValue > -10 And tmpPixValue < 10 Then
+                    stringFormat = "N1"
+                Else
+                    stringFormat = "N0"
+                End If
+
+                msg += covariateLabel + ":  " + tmpPixValue.ToString(stringFormat) + " " + parentMainForm.mainDataManager.variableUnitsLabel(strCovariate, parentMainForm.mainDataManager.curUnits) + vbCrLf
+            End If
         Next
 
 
