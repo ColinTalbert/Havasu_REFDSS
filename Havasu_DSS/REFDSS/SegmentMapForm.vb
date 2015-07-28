@@ -243,6 +243,10 @@ Next
 
     Public Sub loadBackgroundImage()
         Dim backgroundfile As String = Path.Combine(My.Settings.InputDataDirectory, "Overview\Background_nc1m.tif")
+        If Not File.Exists(backgroundfile) Then
+            backgroundfile = Path.Combine(My.Settings.InputDataDirectory, "Overview\HoJoTopockclip_nc1m.tif")
+        End If
+
         If BackgroundInfo.filename <> backgroundfile Then
             If BackgroundInfo.handle <> -1 Then
                 AxMap1.RemoveLayer(BackgroundInfo.handle)
