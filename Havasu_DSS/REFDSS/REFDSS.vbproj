@@ -30,7 +30,7 @@
     <InstallUrl>https://raw.githubusercontent.com/ColinTalbert/Havasu_REFDSS/master/DeploymentPackage/Software/HavasuDSS_deploy/</InstallUrl>
     <ProductName>Havasu_REFDSS</ProductName>
     <PublisherName>Fort Collins Science Center</PublisherName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>0.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
