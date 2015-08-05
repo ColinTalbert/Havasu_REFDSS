@@ -41,7 +41,7 @@ Public Class ScienceBaseDownloader
 
     Public Sub StartDownload()
 
-        lblCurrentlyDownloading.Text = "Downloading data for:  " & strSegment ' & " " & strTreatment
+        lblCurrentlyDownloading.Text = "Downloading InitialData.zip" 'data for:  " & strSegment ' & " " & strTreatment
 
         'Step one download the 
 
@@ -66,6 +66,20 @@ Public Class ScienceBaseDownloader
             downloadzipfile = rootDownloadFolder + "\" + strSegment + parentMainForm.mainDataManager.getTreatmentAbbrev(strSegment, strTreatment) + ".zip"
         End If
 
+        Dim jsonURL As String = url.Replace("https://www.sciencebase.gov/catalog/file/get", "https://www.sciencebase.gov/catalog/item")
+        jsonURL = jsonURL.Replace("?name=Full.zip", "?format=json")
+
+
+        Dim request As HttpWebRequest = DirectCast(WebRequest.Create(jsonURL), HttpWebRequest)
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+        Dim reader As StreamReader = New StreamReader(response.GetResponseStream())
+        Dim jsonString = reader.ReadToEnd()
+        Dim size As String = jsonString.Substring(jsonString.IndexOf("""size""") + 7)
+        size = size.Substring(0, size.IndexOf("}"))
+        pbDownloading.Maximum = CInt(size)
+        reader.Close()
+        response.Close()
+
         WC = New WebClient()
         WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
         WC.DownloadFileAsync(New Uri(url), downloadzipfile)
@@ -82,9 +96,12 @@ Public Class ScienceBaseDownloader
     End Function
 
     Private Sub WC_DownloadProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs) Handles WC.DownloadProgressChanged
-        pbDownloading.Value = e.ProgressPercentage
+        pbDownloading.Value = e.BytesReceived
 
         If e.ProgressPercentage >= 100 Then
+            lblCurrentlyDownloading.Text = "Finished downloading InitialData.zip"
+
+
             'We're done downloading the beast, unzip it into the right place
             Dim strOutDir As String
             Dim tmpOutFolder As String
