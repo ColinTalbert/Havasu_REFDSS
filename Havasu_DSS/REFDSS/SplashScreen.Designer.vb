@@ -58,7 +58,7 @@ Partial Class frmSplash
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.Size = New System.Drawing.Size(139, 25)
         Me.lblVersion.TabIndex = 1
-        Me.lblVersion.Text = "Version 0.1.1"
+        Me.lblVersion.Text = "Version 0.1.2"
         '
         'Label3
         '

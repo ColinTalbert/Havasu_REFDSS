@@ -1,5 +1,6 @@
 ﻿Imports System.Net
 Imports Ionic.Zip
+Imports System.IO
 
 Public Class ScienceBaseDownloader
 
@@ -111,7 +112,7 @@ Public Class ScienceBaseDownloader
                 Me.Cursor = Cursors.WaitCursor
                 _alreadyExtracting = True
             End If
-            
+
 
 
         End If

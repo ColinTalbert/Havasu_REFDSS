@@ -73,7 +73,7 @@
                 <value>https://www.sciencebase.gov/catalog/folder/55ad3417e4b066a2492409ad</value>
             </setting>
             <setting name="SB_Full" serializeAs="String">
-                <value>https://www.sciencebase.gov/catalog/file/get/55ad587be4b066a249242180?f=__disk__c2%2Fe0%2F2d%2Fc2e02d61ee7cd5b18871eb6f9ea7e4449be91352</value>
+                <value>https://www.sciencebase.gov/catalog/file/get/55ad587be4b066a249242180?name=Full.zip</value>
             </setting>
         </Havasu_REFDSS.My.MySettings>
     </userSettings>

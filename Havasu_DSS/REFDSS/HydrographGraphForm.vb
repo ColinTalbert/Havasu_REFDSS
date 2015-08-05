@@ -496,21 +496,25 @@ Public Class HydrographGraphForm
 
         Dim strpColor As Color
         If title = "spawning hydroperiod" Then
-            strpColor = Color.LightPink
+            strpColor = Color.FromArgb(255, 242, 16)
         ElseIf title = "incubation hydroperiod" Then
-            strpColor = Color.LightYellow
+            strpColor = Color.FromArgb(255, 151, 203)
         ElseIf title = "juvenile hydroperiod" Then
-            strpColor = Color.LightCyan
+            strpColor = Color.FromArgb(254, 227, 246)
         ElseIf title = "adult hydroperiod" Then
-            strpColor = Color.LightGreen
+            strpColor = Color.FromArgb(211, 179, 216)
         ElseIf title = "NA hydroperiod" Then
             strpColor = Color.LightGray
         ElseIf title = "breeding hydroperiod" Then
-            strpColor = Color.FromArgb(227, 182, 46)
+            strpColor = Color.FromArgb(130, 216, 26)
         ElseIf title = "nesting hydroperiod" Then
-            strpColor = Color.FromArgb(117, 186, 202)
+            strpColor = Color.FromArgb(249, 190, 100)
         ElseIf title = "molting hydroperiod" Then
-            strpColor = Color.FromArgb(218, 122, 146)
+            strpColor = Color.FromArgb(180, 224, 173)
+        ElseIf title = "breedingForaging hydroperiod" Then
+            strpColor = Color.FromArgb(206, 228, 81)
+        ElseIf title = "breedingNesting hydroperiod" Then
+            strpColor = Color.FromArgb(153, 218, 246)
         Else
             strpColor = Color.Fuchsia
         End If
