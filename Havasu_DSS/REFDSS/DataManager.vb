@@ -6,6 +6,9 @@ Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Xml.Serialization
 Imports WeifenLuo.WinFormsUI.Docking
 Imports System.Text.RegularExpressions
+Imports System.Net
+Imports System.Text
+
 
 Public Class DataManager
     Public validConfig As String = "True"
@@ -474,6 +477,10 @@ Public Class DataManager
 
             LoadSessionDirectory(My.Settings.SessionDirectory)
 
+            'We must also check that the schema/data in the config.xml and sqlite db match what this version of the app is expecting.
+            'If not download them from ScienceBase and 
+            CheckAndUpdata_db()
+
             If Not System.IO.Directory.Exists(My.Settings.InputDataDirectory) Then
 
                 Return "The specified input data directory:" & vbCrLf & _
@@ -520,6 +527,81 @@ Public Class DataManager
         Return "True"
     End Function
 
+    Public Sub CheckAndUpdata_db()
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'db portion not needed yet
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim curDB_version As Integer
+
+        Dim check_sql As String = "SELECT name FROM sqlite_master WHERE type='table' AND name='db_version'"
+        If mainSQLDBConnection.State = ConnectionState.Closed Then
+            mainSQLDBConnection.Open()
+        End If
+
+        Dim SurveyDatatable As New DataTable
+        Dim sqlDA As New SQLite.SQLiteDataAdapter(check_sql, mainSQLDBConnection)
+        sqlDA.Fill(SurveyDatatable)
+
+
+        If SurveyDatatable.Rows.Count = 0 Then
+            curDB_version = -1
+        Else
+            Dim strSQL As String = "SELECT max(Version) as curVersion from 'db_version'"
+            SurveyDatatable.Clear()
+            Dim sqlDA2 As New SQLite.SQLiteDataAdapter(strSQL, mainSQLDBConnection)
+            sqlDA2.Fill(SurveyDatatable)
+
+            curDB_version = SurveyDatatable.Rows(0)("curVersion")
+        End If
+        mainSQLDBConnection.Close()
+
+        If My.Settings.db_version > curDB_version Then
+            'dang it we need to update our xml to have some stuff we'll be expecting...
+            Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
+            If Not IO.Directory.Exists(rootDownloadFolder) Then
+                IO.Directory.CreateDirectory(rootDownloadFolder)
+            End If
+
+            Dim url As String = My.Settings.db_SB
+
+            Dim WC As WebClient = New WebClient()
+            WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
+            WC.DownloadFile(New Uri(url), rootDownloadFolder + "\REFDSS_data.sqlite")
+
+            updateDBTo1(rootDownloadFolder + "\REFDSS_data.sqlite")
+        End If
+
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'XML config portion...
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        Dim xpath As String = "SmartRiverConfig/ConfigVersion"
+        Dim n As XmlNode = config.SelectSingleNode(xpath)
+
+        Dim curXML_version As Integer
+        If n Is Nothing Then
+            curXML_version = -1
+        Else
+            curXML_version = CInt(n.FirstChild.Value)
+        End If
+
+        If My.Settings.xml_version > curXML_version Then
+            'dang it we need to update our xml to have some stuff we'll be expecting...
+            Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
+            If Not IO.Directory.Exists(rootDownloadFolder) Then
+                IO.Directory.CreateDirectory(rootDownloadFolder)
+            End If
+
+            Dim url As String = My.Settings.xml_SB
+
+            Dim WC As WebClient = New WebClient()
+            WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
+            WC.DownloadFile(New Uri(url), rootDownloadFolder + "\config.xml")
+
+            updateConfigTo1(rootDownloadFolder + "\config.xml")
+        End If
+
+    End Sub
+
     Public Sub LoadSessionDirectory(strSessionDir)
         If isSessionDirectory(strSessionDir) Then
 
@@ -535,7 +617,7 @@ Public Class DataManager
             Dim connectionstring As String = "Data Source=" & My.Settings.SQliteDB & ";"
             mainSQLDBConnection.ConnectionString = connectionstring
             setSetting("SQLiteDB", My.Settings.SQliteDB)
-            
+
 
             'Let's check for an inputs directory at the same level as our sessionDir
             If System.IO.Directory.Exists(Path.Combine(Directory.GetParent(My.Settings.SessionDirectory).FullName, "inputs")) Then
@@ -1133,7 +1215,7 @@ Public Class DataManager
     Public Function getConversionFactor(strConversionName As String) As String
         Dim xpath As String
         xpath = "SmartRiverConfig/Units/" + strConversionName
-        Return CDbl(config.SelectSingleNode(XPath).FirstChild.Value)
+        Return CDbl(config.SelectSingleNode(xpath).FirstChild.Value)
     End Function
 
     Public Function variableConversionFactor(strVariable As String) As Double
@@ -1147,7 +1229,7 @@ Public Class DataManager
         Else
             Return getConversionFactor(strUnitConversion)
         End If
-        
+
 
     End Function
 
@@ -1176,7 +1258,7 @@ Public Class DataManager
         Dim xpath As String
 
         xpath = "SmartRiverConfig/Covariates/Covariate[Name='" & strCovariate & "']/ColorScheme/Break[label='" & strLabel & "']/value"
-        
+
         Dim n As XmlNode = config.SelectSingleNode(xpath)
         Return n.FirstChild.Value
     End Function
@@ -1259,7 +1341,7 @@ Public Class DataManager
         Return config.SelectSingleNode(xpath).FirstChild.Value
 
     End Function
-Public Function setEquation(strSpecies As String, strLifeStage As String, newEquation As String)
+    Public Function setEquation(strSpecies As String, strLifeStage As String, newEquation As String)
         Dim xpath As String = "SmartRiverConfig/SpeciesOfInterest/Species[Name='" & strSpecies & "']/Lifestages/Lifestage[Name='" & strLifeStage & "']/HSC/Equation/formula"
         Dim node As XmlNode
         node = config.SelectSingleNode(xpath)
@@ -1296,7 +1378,7 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
 
         Dim maxVal As Double = -9999999
         Dim minVal As Double = 9999999
-        
+
         For Each variableNode In variableNodes
             Dim m As Double = CDbl(variableNode.SelectSingleNode("value").FirstChild.Value)
             minVal = m - 0.01
@@ -1666,13 +1748,34 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
         Return return_Metrics
     End Function
 
+    Public Function getOtherMetrics() As List(Of String)
+        Dim return_Metrics As New List(Of String)
+
+        Dim MetricNodes As XmlNodeList
+        MetricNodes = config.SelectNodes("SmartRiverConfig/OtherMetrics/Metric")
+        For Each metricNode In MetricNodes
+            return_Metrics.Add(metricNode.SelectSingleNode("Name").FirstChild.Value)
+        Next
+        Return return_Metrics
+    End Function
+
     Public Function getHabitatMetricSQL(strMetric) As String
         Dim xpath As String = "SmartRiverConfig/HabitatMetrics/Metric[Name='" & strMetric & "']/SQL"
         Return config.SelectSingleNode(xpath).FirstChild.Value
     End Function
 
+    Public Function getOtherMetricSQL(strMetric) As String
+        Dim xpath As String = "SmartRiverConfig/OtherMetrics/Metric[Name='" & strMetric & "']/SQL"
+        Return config.SelectSingleNode(xpath).FirstChild.Value
+    End Function
+
     Public Function getHabitatMetricAbrev(strMetric) As String
         Dim xpath As String = "SmartRiverConfig/HabitatMetrics/Metric[Name='" & strMetric & "']/Abrev"
+        Return config.SelectSingleNode(xpath).FirstChild.Value
+    End Function
+
+    Public Function getOtherMetricAbrev(strMetric) As String
+        Dim xpath As String = "SmartRiverConfig/OtherMetrics/Metric[Name='" & strMetric & "']/Abrev"
         Return config.SelectSingleNode(xpath).FirstChild.Value
     End Function
 
@@ -1686,6 +1789,8 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
         Dim xpath As String = "SmartRiverConfig/HabitatMetrics/Metric[Name='" & strMetric & "']/GraphType"
         Return config.SelectSingleNode(xpath).FirstChild.Value
     End Function
+
+
 
     Public Function getFlowVsHabitatSQL() As String
         Dim xpath As String = "SmartRiverConfig/FlowVsHabitat/Metric/SQL"
@@ -1773,7 +1878,7 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
         Catch ex As Exception
             Return "Metric"
         End Try
-        
+
     End Function
 
 #End Region
@@ -2221,7 +2326,7 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
                                 selectSQL += " * " + getConversionFactor("MetersToFeet")
                             End If
                             selectSQL += " as " + colName + ", "
-                            End If
+                        End If
 
 
                     Next
@@ -2229,12 +2334,12 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
             Next
         End If
 
-        For Each scenario In cdd.scenarios
-            For Each item In cdd.otherMetrics
-                colName = scenario + "_" + item
-                selectSQL += "scenario_" + scenario + "." + item + " as " + colName + ", "
-            Next
-        Next
+        'For Each scenario In cdd.scenarios
+        '    For Each item In cdd.otherMetrics
+        '        colName = scenario + "_" + item
+        '        selectSQL += "scenario_" + scenario + "." + item + " as " + colName + ", "
+        '    Next
+        'Next
         selectSQL = selectSQL.Substring(0, Len(selectSQL) - 2)
 
         Dim strSQL As String
@@ -2708,6 +2813,100 @@ Public Function setEquation(strSpecies As String, strLifeStage As String, newEqu
             config.Save(My.Settings.ConfigXML)
         Catch
         End Try
+
+    End Sub
+#End Region
+
+#Region "DBandConfigUpdaters"
+    Public Sub updateDBTo1(strNewDBName)
+        Dim updateSQLDBConnection As New SQLite.SQLiteConnection()
+        Dim connectionstring As String = "Data Source=" & strNewDBName & ";"
+        updateSQLDBConnection.ConnectionString = connectionstring
+
+        If mainSQLDBConnection.State = ConnectionState.Closed Then
+            mainSQLDBConnection.Open()
+        End If
+
+        Dim sb As New StringBuilder("ATTACH DATABASE '")
+        sb.Append(strNewDBName)
+        sb.Append("' AS updateDB;")
+        Dim c As New SQLiteCommand(sb.ToString, mainSQLDBConnection)
+        c.ExecuteNonQuery()
+        c.Dispose()
+
+        Dim c2 As New SQLiteCommand("create table main.db_version as select * from updateDB.db_version;", mainSQLDBConnection)
+        c2.ExecuteNonQuery()
+        c2.Dispose()
+
+        Dim c3 As New SQLiteCommand("create table main.MarshVolLookup as select * from updateDB.MarshVolLookup;", mainSQLDBConnection)
+        c3.ExecuteNonQuery()
+        c3.Dispose()
+
+
+
+    End Sub
+
+
+    Public Sub updateConfigTo1(strNewConfigFname)
+        Dim NewConfig As New XmlDocument
+        NewConfig.Load(strNewConfigFname)
+
+        'Dim FlowNodes As XmlNodeList
+        'FlowNodes = config.SelectNodes("SmartRiverConfig/Segments/Segment/Treatments/Treatment/Flows/Flow")
+        'For Each FlowNode As XmlNode In FlowNodes
+        '    Dim flow As String = FlowNode.SelectSingleNode("cfs").InnerText()
+        '    Dim newFlowNode As XmlNode = NewConfig.SelectSingleNode("SmartRiverConfig/Segments/Segment/Treatments/Treatment/Flows/Flow[cfs='" & flow & "']")
+
+        '    Dim newAFnode As XmlNode = config.CreateElement("af")
+        '    newAFnode.InnerText = newFlowNode.SelectSingleNode("af").InnerText()
+        '    FlowNode.AppendChild(newAFnode)
+
+        'Next
+
+        'Grab existing nodes to use to specify where to insert the new content
+        Dim rootNode As XmlNode = config.SelectSingleNode("SmartRiverConfig")
+        Dim RiversNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/Rivers")
+        Dim HabMetricsNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/HabitatMetrics")
+
+        'Create ConfigVersion node
+        Dim newVersionNode As XmlNode = config.CreateElement("ConfigVersion")
+        newVersionNode.InnerText = "1"
+        rootNode.InsertBefore(newVersionNode, RiversNode)
+
+        'Copy OtherMetricsNode
+        Dim newOtherMetricsNode As XmlNode = config.CreateElement("OtherMetrics")
+        Dim importOtherMetricsNode As XmlNode = NewConfig.SelectSingleNode("SmartRiverConfig/OtherMetrics")
+        newOtherMetricsNode.InnerXml = importOtherMetricsNode.InnerXml
+        rootNode.InsertAfter(newOtherMetricsNode, HabMetricsNode)
+
+        'Add in the new water storage view
+        Dim importViewNode As XmlNode = NewConfig.SelectSingleNode("SmartRiverConfig/GUIConfigs/BuiltIn/GUIConfig[Name='Water Storage']")
+        Dim newViewNode As XmlNode = config.CreateElement("GUIConfig")
+        newViewNode.InnerXml = importViewNode.InnerXml
+        Dim BuiltinNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/BuiltIn")
+        BuiltinNode.AppendChild(newViewNode)
+
+        'Update the series symbology
+        Dim updatedSeriesNodes As XmlNodeList
+        updatedSeriesNodes = NewConfig.SelectNodes("SmartRiverConfig/GUIConfigs/UpdateSeriesSymbology/Series")
+        Dim oldSeriesRootNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/SeriesSymbology")
+        For Each updatedSeriesNode As XmlNode In updatedSeriesNodes
+            Dim seriesName As String = updatedSeriesNode.SelectSingleNode("Name").InnerText
+            Try
+                Dim oldSeriesNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/SeriesSymbology/Series[Name='" + seriesName + "']")
+                oldSeriesRootNode.RemoveChild(oldSeriesNode)
+            Catch ex As Exception
+
+            End Try
+
+            Dim newSeriesNode As XmlNode = config.CreateElement("Series")
+            newSeriesNode.InnerXml = updatedSeriesNode.InnerXml
+            oldSeriesRootNode.AppendChild(newSeriesNode)
+        Next
+
+
+        config.Save(My.Settings.ConfigXML)
+
 
     End Sub
 #End Region
