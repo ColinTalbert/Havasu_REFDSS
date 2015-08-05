@@ -236,8 +236,6 @@ Public Class HydrographGraphForm
     End Sub
 
     Private Sub loadNonHabitatForScenario(Scenario)
-
-
         Dim getRowListSQL As String = "SELECT * FROM scenario_UnitConversions"
         mainDataManager.mainSQLDBConnection.Open()
         Dim sqlDARowList As New SQLite.SQLiteDataAdapter(getRowListSQL, mainDataManager.mainSQLDBConnection)
@@ -254,10 +252,6 @@ Public Class HydrographGraphForm
                 mySelectSQL += row(0) + " * " + mainDataManager.getConversionFactor(row(1)) + " as " + row(0) + ", "
             End If
         Next
-
-
-
-
 
         For Each river As String In mainDataManager.getRiverNames()
             Dim seg_abrevs As List(Of String) = mainDataManager.getSegmentAbrevsForRiver(river)
@@ -301,12 +295,31 @@ Public Class HydrographGraphForm
             Next
         Next
 
+        Dim otherMetricsSQL As String = ""
         For Each item In curDisplayData.otherMetrics
+            otherMetricsSQL = mainDataManager.getOtherMetricSQL(item)
+            Dim SQLCleanupDict As New Dictionary(Of String, String)
+            SQLCleanupDict.Add("{scenariotable}", "scenario_" + Scenario)
+            otherMetricsSQL = cleanUpSQL(otherMetricsSQL, SQLCleanupDict)
+
+            Dim otherDatatable As New DataTable
+            Dim otherSQLDA As New SQLite.SQLiteDataAdapter(otherMetricsSQL, mainDataManager.mainSQLDBConnection)
+            otherSQLDA.Fill(otherDatatable)
 
             Dim seriesName As String = Scenario + "  " + item
-            loadHydroSeries(hydroDatatable, seriesName, item, item, False)
+            Dim colName As String = mainDataManager.getOtherMetricAbrev(item)
 
-        Next
+            Dim dateColumn As DataColumn = New DataColumn
+            With dateColumn
+                .DataType = GetType(Date)
+                .ColumnName = "Date"
+                .Expression = "month"
+            End With
+
+            otherDatatable.Columns.Add(dateColumn)
+            loadOtherSeries(otherDatatable, seriesName, colName, item, True)
+
+        Next item
     End Sub
 
     Private Sub loadHabitatForScenario(scenario)
@@ -348,7 +361,7 @@ Public Class HydrographGraphForm
 
         End If
         newSeries.Points.DataBindXY(dt.DefaultView, "Date", dt.DefaultView, xFieldName)
-        newSeries.ToolTip = "#SERIESNAME" & vbCrLf & "#VALX" & vbCrLf & "#VALY"
+        newSeries.ToolTip = "#SERIESNAME" & vbCrLf & "#VALX" & vbCrLf & "#VALY{#.#}"
 
 
         Try
@@ -359,6 +372,37 @@ Public Class HydrographGraphForm
 
 
         SetChartTransparency(Me.hydrographChart, newSeries.Name)
+    End Sub
+
+    Private Sub loadOtherSeries(ByRef dt As DataTable, seriesName As String,
+                           xFieldName As String, seriesTag As String, bRightAxis As Boolean)
+        Dim newSeries As New Series
+        newSeries.Name = seriesName
+        newSeries.Tag = seriesTag
+        newSeries.ChartType = SeriesChartType.Column
+
+        mainDataManager.symbolizeSeries(seriesName, newSeries)
+
+        If bRightAxis Then
+            hydrographChart.ChartAreas(0).AxisY2.TextOrientation = TextOrientation.Rotated270
+            newSeries.YAxisType = AxisType.Secondary
+            'hydrographChart.ChartAreas(0).AxisY2.LabelStyle.Format = "#,###,###,"
+            'hydrographChart.ChartAreas(0).AxisY2.Title = AxisLabel(seriesName)
+            'hydrographChart.ChartAreas(0).AxisY2.TitleFont = New Font(hydrographChart.ChartAreas(0).AxisY.TitleFont.FontFamily, CInt(mainDataManager.getFont("YAxisTitle")), FontStyle.Regular)
+
+        End If
+        newSeries.Points.DataBindXY(dt.DefaultView, "Date", dt.DefaultView, xFieldName)
+        newSeries.ToolTip = "#SERIESNAME" & vbCrLf & "#VALX{MMMM}" & vbCrLf & "#VALY{#.#}"
+
+
+        Try
+            hydrographChart.Series.Insert(0, newSeries)
+        Catch ex As Exception
+
+        End Try
+
+
+        'SetChartTransparency(Me.hydrographChart, newSeries.Name)
     End Sub
 
     Private Sub loadHabitatSeries(strScenario As String, strSpecies As String, curLifeStage As lifestage)
@@ -625,7 +669,7 @@ Public Class HydrographGraphForm
                 If mainDataManager.seriesSymbology(selectedSeries.Name).curWidth > 5 Then
                     mainDataManager.seriesSymbology(selectedSeries.Name).curWidth = 5
                 End If
-                sf.cboWidth.SelectedIndex = mainDataManager.seriesSymbology(selectedSeries.Name).curWidth - 1
+                'sf.cboWidth.SelectedIndex = mainDataManager.seriesSymbology(selectedSeries.Name).curWidth - 1
                 sf.cboStyle.Text = mainDataManager.seriesSymbology(selectedSeries.Name).curStyle.ToString
                 sf.cboMarkers.Text = mainDataManager.seriesSymbology(selectedSeries.Name).curMarker.ToString
                 'sf.cboWidth.SelectedText = 4

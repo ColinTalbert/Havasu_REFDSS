@@ -97,28 +97,37 @@ Public Class SelectDisplayData
 
 
         tvOtherMetrics.Nodes.Clear()
-        'Now add all the fields that are not segment flows to the OtherVars menulist dropdown items
-        Dim segmentAbbrevs As List(Of String) = mainParentForm.mainDataManager.getSegmentAbbrevs()
+        For Each otherMetric In mainParentForm.maindatamanager.getOtherMetrics()
+            tvOtherMetrics.Nodes.Add(otherMetric)
+        Next
 
-        Dim strsql As String = "pragma table_info(scenario_" + tvScenario.Nodes(0).Text + ");"
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'Hard wired for havasu :(
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''Now add all the fields that are not segment flows to the OtherVars menulist dropdown items
+        'Dim segmentAbbrevs As List(Of String) = mainParentForm.mainDataManager.getSegmentAbbrevs()
 
-        mainParentForm.mainDataManager.mainSQLDBConnection.Open()
-        Dim SQLcommand As SQLiteCommand
-        SQLcommand = mainParentForm.mainDataManager.mainSQLDBConnection.CreateCommand
-        SQLcommand.CommandText = strsql
-        Dim SQLreader As SQLiteDataReader = SQLcommand.ExecuteReader()
+        'Dim strsql As String = "pragma table_info(scenario_" + tvScenario.Nodes(0).Text + ");"
 
-        While SQLreader.Read()
-            If Not segmentAbbrevs.Contains(SQLreader(1)) And
-                Not SQLreader(1) = "Date" Then
-                tvOtherMetrics.Nodes.Add(SQLreader(1))
-            End If
+        'mainParentForm.mainDataManager.mainSQLDBConnection.Open()
+        'Dim SQLcommand As SQLiteCommand
+        'SQLcommand = mainParentForm.mainDataManager.mainSQLDBConnection.CreateCommand
+        'SQLcommand.CommandText = strsql
+        'Dim SQLreader As SQLiteDataReader = SQLcommand.ExecuteReader()
 
-        End While
-        SQLcommand.Dispose()
-        mainParentForm.mainDataManager.mainSQLDBConnection.Close()
+        'While SQLreader.Read()
+        '    If Not segmentAbbrevs.Contains(SQLreader(1)) And
+        '        Not SQLreader(1) = "Date" Then
+        '        tvOtherMetrics.Nodes.Add(SQLreader(1))
+        '    End If
 
-        tvDisplayMetrics.Nodes.Clear()
+        'End While
+        'SQLcommand.Dispose()
+        'mainParentForm.mainDataManager.mainSQLDBConnection.Close()
+        'tvOtherMetrics.Nodes.Add("Monthly sum evapotraspiration")
+        'tvOtherMetrics.Nodes.Add("Monthly change in marsh volume")
+
+        'tvDisplayMetrics.Nodes.Clear()
         For Each strDisplayMetric In MainForm.mainDataManager.getHabitatMetrics()
             tvDisplayMetrics.Nodes.Add(strDisplayMetric, strDisplayMetric)
         Next

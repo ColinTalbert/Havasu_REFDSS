@@ -50,7 +50,9 @@ Public Class SeriesFormater
             If IsNothing(curSeries("PointWidth")) Then
                 cboWidth.SelectedIndex = 3
             Else
-                cboWidth.SelectedItem = curSeries("PointWidth")
+                cboWidth.SelectedIndex = cboWidth.Items.IndexOf(curSeries("PointWidth"))
+                cboWidth.Text = curSeries("PointWidth")
+                'cboWidth.SelectedItem = curSeries("PointWidth")
             End If
             AddHandler cboWidth.SelectedIndexChanged, AddressOf cboWidth_SelectedIndexChanged
 

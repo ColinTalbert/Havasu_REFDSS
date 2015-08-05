@@ -226,6 +226,44 @@ Namespace My
                 Me("SB_Full") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public ReadOnly Property db_version() As Integer
+            Get
+                Return CType(Me("db_version"),Integer)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public ReadOnly Property xml_version() As Integer
+            Get
+                Return CType(Me("xml_version"),Integer)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55c0dae5e4b033ef5210449b?name=REFDSS"& _ 
+            "_data.sqlite")>  _
+        Public ReadOnly Property db_SB() As String
+            Get
+                Return CType(Me("db_SB"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55c22723e4b033ef521059b3?name=config"& _ 
+            ".xml")>  _
+        Public ReadOnly Property xml_SB() As String
+            Get
+                Return CType(Me("xml_SB"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
