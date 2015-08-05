@@ -257,7 +257,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55c22723e4b033ef521059b3?name=config"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55c27821e4b033ef5210682e?name=config"& _ 
             ".xml")>  _
         Public ReadOnly Property xml_SB() As String
             Get

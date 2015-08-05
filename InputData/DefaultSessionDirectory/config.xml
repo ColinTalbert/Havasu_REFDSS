@@ -22,8 +22,7 @@ Treatments are listed under each river.  Treatments can either be actual treatme
       <Treatments>
         <Treatment>
           <fullName>hist</fullName>
-          <TreatAbbrev>
-          </TreatAbbrev>
+          <TreatAbbrev></TreatAbbrev>
           <Flows>
             <Flow>
               <cfs>138.000</cfs>
@@ -5915,6 +5914,13 @@ Each 'GUIConfig' contains all the info for a single layout.  The DockPanel secti
         <LegendText>2014_high SWE</LegendText>
       </Series>
       <Series>
+        <Name>2011_low  Topock_1_Q</Name>
+        <Color> 28, 131, 234</Color>
+        <Width>2</Width>
+        <LineStyle>5</LineStyle>
+        <LegendText>2011_low SWE</LegendText>
+      </Series>
+      <Series>
         <Name>2014_high  MarshVolume</Name>
         <Color> 117, 186, 202</Color>
         <Width>0.8</Width>
@@ -5984,16 +5990,14 @@ Each 'GUIConfig' contains all the info for a single layout.  The DockPanel secti
         <Color> 218, 122, 146</Color>
         <Width>1</Width>
         <LineStyle>Solid</LineStyle>
-        <LegendText>
-        </LegendText>
+        <LegendText></LegendText>
       </Series>
       <Series>
         <Name>MaxHabitat  Topock_1_Q</Name>
         <Color> 227, 182, 46</Color>
         <Width>1</Width>
         <LineStyle>Solid</LineStyle>
-        <LegendText>
-        </LegendText>
+        <LegendText></LegendText>
       </Series>
       <Series>
         <Name>2014_high  Topock_1_Q</Name>
@@ -6082,7 +6086,6 @@ Each 'GUIConfig' contains all the info for a single layout.  The DockPanel secti
     <CMSToCFS>35.31</CMSToCFS>
   </Units>
   <backup>
-    <SmartRiverConfig>
-    </SmartRiverConfig>
+    <SmartRiverConfig></SmartRiverConfig>
   </backup>
 </SmartRiverConfig>
