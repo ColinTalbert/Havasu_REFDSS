@@ -590,7 +590,7 @@ Public Class DataManager
             curXML_version = CInt(n.FirstChild.Value)
         End If
 
-        If My.Settings.xml_version > curXML_version Then
+        If curXML_version < 1 Then
             'dang it we need to update our xml to have some stuff we'll be expecting...
             Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
             If Not IO.Directory.Exists(rootDownloadFolder) Then
@@ -604,7 +604,8 @@ Public Class DataManager
             WC.DownloadFile(New Uri(url), rootDownloadFolder + "\config.xml")
 
             updateConfigTo1(rootDownloadFolder + "\config.xml")
-            updateConfigTo2(rootDownloadFolder + "\config.xml")
+        ElseIf curXML_version < 2 Then
+            updateConfigTo2(My.Settings.ConfigXML)
         End If
 
     End Sub
@@ -2940,12 +2941,13 @@ Public Class DataManager
 
         'Replace the corrupt raw data default.
         Dim newRawData As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/DefaultComponents/RawDataForm")
-        newRawData.InnerText = "<RawDataForm><chartDisplayData xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""><showHydro>true</showHydro><scenarios><string>2011_low</string><string>Average</string><string>MaxHabitat</string><string>2014_high</string></scenarios><rivers><item><key><string>Topock</string></key><value><ArrayOfString><string>Topock_1</string></ArrayOfString></value></item></rivers><treatments><string>hist</string></treatments><species /><otherMetrics><string>TotalWaterRequired</string></otherMetrics><displayMetrics /><startYear>2006</startYear><endYear>2099</endYear><interval>single</interval><baseline>2011_low</baseline></chartDisplayData></RawDataForm>"
+        newRawData.InnerXml = "<chartDisplayData xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""><showHydro>true</showHydro><scenarios><string>2011_low</string><string>Average</string><string>MaxHabitat</string><string>2014_high</string></scenarios><rivers><item><key><string>Topock</string></key><value><ArrayOfString><string>Topock_1</string></ArrayOfString></value></item></rivers><treatments><string>hist</string></treatments><species><item><key><string>Yuma clapper rail</string></key><value><ArrayOfLifestage><lifestage><name>breedingForaging</name><hydroPeriod><startMonth>3</startMonth><startDay>15</startDay><endMonth>7</endMonth><endDay>30</endDay></hydroPeriod></lifestage><lifestage><name>breedingNesting</name><hydroPeriod><startMonth>3</startMonth><startDay>15</startDay><endMonth>7</endMonth><endDay>30</endDay></hydroPeriod></lifestage></ArrayOfLifestage></value></item><item><key><string>Southwestern willow flycatcher</string></key><value><ArrayOfLifestage><lifestage><name>breeding</name><hydroPeriod><startMonth>5</startMonth><startDay>1</startDay><endMonth>8</endMonth><endDay>31</endDay></hydroPeriod></lifestage></ArrayOfLifestage></value></item></species><otherMetrics><string>TotalWaterRequired</string></otherMetrics><displayMetrics><string>Average of bottom 25% of habitat</string></displayMetrics><startYear>2006</startYear><endYear>2099</endYear><interval>single</interval><baseline>2011_low</baseline></chartDisplayData>"
 
         Dim curInnerXML = config.InnerXml
         curInnerXML = curInnerXML.Replace("<Name>molting</Name>", "<Name>breedingForaging</Name>")
         curInnerXML = curInnerXML.Replace("<string>Rev7</string>", "")
         curInnerXML = curInnerXML.Replace("<string>FFMP</string>", "")
+        curInnerXML = curInnerXML.Replace("<treatments><string>2005</string></treatments>", "<treatments><string>hist</string></treatments>")
         config.InnerXml = curInnerXML
 
         config.Save(My.Settings.ConfigXML)

@@ -408,7 +408,7 @@ Partial Class MainForm
         '
         'ToolStripContainer1.ContentPanel
         '
-        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 656)
+        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 681)
         Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStripContainer1.Name = "ToolStripContainer1"
@@ -540,7 +540,7 @@ Partial Class MainForm
         '
         Me.tsHydrographControls.Dock = System.Windows.Forms.DockStyle.None
         Me.tsHydrographControls.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsbZoomCursor, Me.tsbSelectFlowCursor, Me.ToolStripSeparator6, Me.tsbZoomFullHydro, Me.btnPlay, Me.ToolStripLabel4, Me.cboPlaySpeed})
-        Me.tsHydrographControls.Location = New System.Drawing.Point(3, 49)
+        Me.tsHydrographControls.Location = New System.Drawing.Point(263, 24)
         Me.tsHydrographControls.Name = "tsHydrographControls"
         Me.tsHydrographControls.Size = New System.Drawing.Size(383, 25)
         Me.tsHydrographControls.TabIndex = 10
