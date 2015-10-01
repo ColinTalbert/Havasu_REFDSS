@@ -43,6 +43,7 @@ Partial Class MainForm
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveScenariosDBAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetAllDefaultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewFunctionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmViews = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveCurrentView = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,7 +120,7 @@ Partial Class MainForm
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem10, Me.ChangeInputDataDirectoryToolStripMenuItem, Me.ToolStripSeparator2, Me.ProjectFileconfigxmlToolStripMenuItem, Me.ChangeSessionDirectory, Me.SaveCurrentSession, Me.CreateNewDefaultSession, Me.ToolStripSeparator1, Me.AddScenarioOASISreformaterxlsToolStripMenuItem, Me.tsmRemoveScenarios, Me.ToolStripSeparator8, Me.ToolStripMenuItem2, Me.ResetAllDefaultsToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem10, Me.ChangeInputDataDirectoryToolStripMenuItem, Me.ToolStripSeparator2, Me.ProjectFileconfigxmlToolStripMenuItem, Me.ChangeSessionDirectory, Me.SaveCurrentSession, Me.CreateNewDefaultSession, Me.ToolStripSeparator1, Me.AddScenarioOASISreformaterxlsToolStripMenuItem, Me.tsmRemoveScenarios, Me.ToolStripSeparator8, Me.ToolStripMenuItem2, Me.ResetAllDefaultsToolStripMenuItem, Me.NewFunctionToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -236,6 +237,12 @@ Partial Class MainForm
         Me.ResetAllDefaultsToolStripMenuItem.Name = "ResetAllDefaultsToolStripMenuItem"
         Me.ResetAllDefaultsToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
         Me.ResetAllDefaultsToolStripMenuItem.Text = "Reset all Defaults!"
+        '
+        'NewFunctionToolStripMenuItem
+        '
+        Me.NewFunctionToolStripMenuItem.Name = "NewFunctionToolStripMenuItem"
+        Me.NewFunctionToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.NewFunctionToolStripMenuItem.Text = "New function"
         '
         'tsmViews
         '
@@ -401,7 +408,7 @@ Partial Class MainForm
         '
         'ToolStripContainer1.ContentPanel
         '
-        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 681)
+        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 656)
         Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStripContainer1.Name = "ToolStripContainer1"
@@ -533,7 +540,7 @@ Partial Class MainForm
         '
         Me.tsHydrographControls.Dock = System.Windows.Forms.DockStyle.None
         Me.tsHydrographControls.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsbZoomCursor, Me.tsbSelectFlowCursor, Me.ToolStripSeparator6, Me.tsbZoomFullHydro, Me.btnPlay, Me.ToolStripLabel4, Me.cboPlaySpeed})
-        Me.tsHydrographControls.Location = New System.Drawing.Point(259, 24)
+        Me.tsHydrographControls.Location = New System.Drawing.Point(3, 49)
         Me.tsHydrographControls.Name = "tsHydrographControls"
         Me.tsHydrographControls.Size = New System.Drawing.Size(383, 25)
         Me.tsHydrographControls.TabIndex = 10
@@ -773,4 +780,5 @@ Partial Class MainForm
     Friend WithEvents ImperialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsmRemoveScenarios As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MapLegendToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NewFunctionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

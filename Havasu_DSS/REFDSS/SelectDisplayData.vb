@@ -267,6 +267,10 @@ Public Class SelectDisplayData
                 cdd.treatments.Add(item.Text)
             End If
         Next
+        If cdd.treatments.Count = 0 Then
+            cdd.treatments.Add(mainParentForm.mainDataManager.getTreatmentNames()(0))
+        End If
+
 
         cdd.rivers.Clear()
         Dim NAlist As New List(Of String)

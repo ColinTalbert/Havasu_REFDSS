@@ -59,6 +59,7 @@ Public Class DataManager
             dataForm.curDisplayData = parentMainForm.mainDataManager.getDefaultDisplayData("RawDataForm")
             dataForm.curDisplayData.startYear = parentMainForm.mainDataManager.curStartYear
             dataForm.Show(parentMainForm.mainDockPanel, DockState.DockBottom)
+
             dataForm.loadData()
         End If
         Return dataForm
@@ -418,7 +419,12 @@ Public Class DataManager
             dc_typed = (getTypedDC(dc))
             Dim curNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/Current/GUIConfig/SmartRiverWidget[Name='" & dc_typed.Tag & "']")
             dc_typed.loadFromXMLNode(curNode)
-            dc_typed.refreshAfterLoad()
+            Try
+                dc_typed.refreshAfterLoad()
+            Catch ex As Exception
+
+            End Try
+
         Next
     End Sub
 
@@ -598,6 +604,7 @@ Public Class DataManager
             WC.DownloadFile(New Uri(url), rootDownloadFolder + "\config.xml")
 
             updateConfigTo1(rootDownloadFolder + "\config.xml")
+            updateConfigTo2(rootDownloadFolder + "\config.xml")
         End If
 
     End Sub
@@ -2234,38 +2241,42 @@ Public Class DataManager
                     For Each outputSpecies In cdd.species
                         For Each outputLifestage In outputSpecies.Value
                             For Each outputMetric In cdd.displayMetrics
-                                Dim r As DataRow = allData.NewRow
-                                Dim seriesName As String = outputTreatment & "_" & _
-                                        getRiverAbbrev(outputRiver.Key) & "_" & getSegmentAbbrev(outputSegment) & "_" & _
-                                        getSpeciesAbbrev(outputSpecies.Key) & "_" & getLifeStageAbbrev(outputSpecies.Key, outputLifestage.name) & "_" & _
-                                        getHabitatMetricAbrev(outputMetric)
-                                r(0) = seriesName
-                                Dim i As Integer = 1
-                                For Each outputScenario In cdd.scenarios
+                                Try
+                                    Dim r As DataRow = allData.NewRow
+                                    Dim seriesName As String = outputTreatment & "_" & _
+                                            getRiverAbbrev(outputRiver.Key) & "_" & getSegmentAbbrev(outputSegment) & "_" & _
+                                            getSpeciesAbbrev(outputSpecies.Key) & "_" & getLifeStageAbbrev(outputSpecies.Key, outputLifestage.name) & "_" & _
+                                            getHabitatMetricAbrev(outputMetric)
+                                    r(0) = seriesName
+                                    Dim i As Integer = 1
+                                    For Each outputScenario In cdd.scenarios
 
-                                    Dim yrlyData As DataTable
-                                    If outputRiver.Key = "aggAll" Then
-                                        yrlyData = getBasinWideHabitat(outputScenario, outputTreatment, outputRiver.Key, _
-                                                                                                  outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
-                                                                                                  outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
-                                    ElseIf outputSegment = "aggRiver" Then
-                                        yrlyData = getYearlyRiverHabitat(outputScenario, outputTreatment, outputRiver.Key, _
-                                                                                                  outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
-                                                                                                  outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
+                                        Dim yrlyData As DataTable
+                                        If outputRiver.Key = "aggAll" Then
+                                            yrlyData = getBasinWideHabitat(outputScenario, outputTreatment, outputRiver.Key, _
+                                                                                                      outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
+                                                                                                      outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
+                                        ElseIf outputSegment = "aggRiver" Then
+                                            yrlyData = getYearlyRiverHabitat(outputScenario, outputTreatment, outputRiver.Key, _
+                                                                                                      outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
+                                                                                                      outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
 
-                                    Else
-                                        yrlyData = getYearlySegmentHabitat(outputScenario, outputTreatment, outputRiver.Key, _
-                                                                                                  outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
-                                                                                                  outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
-                                    End If
-                                    If yrlyData.Rows.Count > 0 Then
-                                        r(i) = CDbl(yrlyData.Rows(0)("InterHabitat"))
-                                    Else
-                                        r(i) = 0
-                                    End If
-                                    i += 1
-                                Next
-                                allData.Rows.Add(r)
+                                        Else
+                                            yrlyData = getYearlySegmentHabitat(outputScenario, outputTreatment, outputRiver.Key, _
+                                                                                                      outputSegment, outputSpecies.Key, outputLifestage.name, outputMetric, _
+                                                                                                      outputLifestage.hydroPeriod, cdd.startYear, cdd.endYear, cdd.interval = "yearly")
+                                        End If
+                                        If yrlyData.Rows.Count > 0 Then
+                                            r(i) = CDbl(yrlyData.Rows(0)("InterHabitat"))
+                                        Else
+                                            r(i) = 0
+                                        End If
+                                        i += 1
+                                    Next
+                                    allData.Rows.Add(r)
+                                Catch ex As Exception
+
+                                End Try
                             Next
                         Next
 
@@ -2904,6 +2915,38 @@ Public Class DataManager
             oldSeriesRootNode.AppendChild(newSeriesNode)
         Next
 
+        Dim curInnerXML = config.InnerXml
+        curInnerXML = curInnerXML.Replace("<Name>molting</Name>", "<Name>breedingForaging</Name>")
+        curInnerXML = curInnerXML.Replace("<name>molting</name>", "<name>breedingForaging</name>")
+        config.InnerXml = curInnerXML
+
+        config.Save(My.Settings.ConfigXML)
+
+
+    End Sub
+
+    Public Sub updateConfigTo2(strNewConfigFname)
+        Dim NewConfig As New XmlDocument
+        NewConfig.Load(strNewConfigFname)
+
+        'Grab existing nodes to use to specify where to insert the new content
+        Dim rootNode As XmlNode = config.SelectSingleNode("SmartRiverConfig")
+        Dim RiversNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/Rivers")
+        Dim HabMetricsNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/HabitatMetrics")
+
+        'Create ConfigVersion node
+        Dim newVersionNode As XmlNode = config.SelectSingleNode("SmartRiverConfig/ConfigVersion")
+        newVersionNode.InnerText = "2"
+
+        'Replace the corrupt raw data default.
+        Dim newRawData As XmlNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/DefaultComponents/RawDataForm")
+        newRawData.InnerText = "<RawDataForm><chartDisplayData xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""><showHydro>true</showHydro><scenarios><string>2011_low</string><string>Average</string><string>MaxHabitat</string><string>2014_high</string></scenarios><rivers><item><key><string>Topock</string></key><value><ArrayOfString><string>Topock_1</string></ArrayOfString></value></item></rivers><treatments><string>hist</string></treatments><species /><otherMetrics><string>TotalWaterRequired</string></otherMetrics><displayMetrics /><startYear>2006</startYear><endYear>2099</endYear><interval>single</interval><baseline>2011_low</baseline></chartDisplayData></RawDataForm>"
+
+        Dim curInnerXML = config.InnerXml
+        curInnerXML = curInnerXML.Replace("<Name>molting</Name>", "<Name>breedingForaging</Name>")
+        curInnerXML = curInnerXML.Replace("<string>Rev7</string>", "")
+        curInnerXML = curInnerXML.Replace("<string>FFMP</string>", "")
+        config.InnerXml = curInnerXML
 
         config.Save(My.Settings.ConfigXML)
 

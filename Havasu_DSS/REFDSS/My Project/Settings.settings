@@ -48,7 +48,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="xml_version" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="db_SB" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55c0dae5e4b033ef5210449b?name=REFDSS_data.sqlite</Value>

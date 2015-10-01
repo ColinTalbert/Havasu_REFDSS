@@ -238,7 +238,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public ReadOnly Property xml_version() As Integer
             Get
                 Return CType(Me("xml_version"),Integer)
