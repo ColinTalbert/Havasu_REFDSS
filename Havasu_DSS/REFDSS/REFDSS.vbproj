@@ -30,7 +30,7 @@
     <InstallUrl>https://raw.githubusercontent.com/ColinTalbert/Havasu_REFDSS/master/DeploymentPackage/Software/HavasuDSS_deploy/</InstallUrl>
     <ProductName>Havasu_REFDSS</ProductName>
     <PublisherName>Fort Collins Science Center</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>0.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -185,11 +185,12 @@
   <ItemGroup>
     <Reference Include="AxInterop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\MapWindow\AxInterop.MapWinGIS.dll</HintPath>
+      <HintPath>C:\temp\test\WindowsApplication2\WindowsApplication2\bin\Debug\AxInterop.MapWinGIS.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.MapWinGIS">
-      <HintPath>C:\Program Files\MapWindow\Interop.MapWinGIS.dll</HintPath>
+    <Reference Include="Interop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\temp\test\WindowsApplication2\WindowsApplication2\bin\Debug\Interop.MapWinGIS.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip.Reduced">
       <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\Ionic.Zip.Reduced.dll</HintPath>
