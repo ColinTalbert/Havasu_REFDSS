@@ -8,12 +8,14 @@ Imports WeifenLuo.WinFormsUI.Docking
 Imports System.Text.RegularExpressions
 Imports System.Net
 Imports System.Text
+Imports Ionic.Zip
 
 
 Public Class DataManager
     Public validConfig As String = "True"
 
     Private RawDataForms As New List(Of RawDataForm)
+    Private FigureForms As New List(Of FigureForm)
 
     Public config As New XmlDocument
     Public inputsFolder As String
@@ -85,6 +87,40 @@ Public Class DataManager
 
 
     End Sub
+
+    Public Function addFigureForm(Optional strWhich As String = "", Optional show As Boolean = True)
+        'Generate a new raw data form and add it to our queue
+        'This form loads with the default values
+        Dim FigureForm As New FigureForm(Me)
+
+
+        If show Then
+            FigureForm.Text = strWhich
+            'set this hydrograph to the default symbology and data
+            FigureForm.Show(parentMainForm.mainDockPanel, DockState.Float)
+
+            FigureForm.loadData()
+        End If
+        FigureForms.Add(FigureForm)
+        FigureForm.Tag = "FigureForm:" + CStr(FigureForms.Count)
+        Return FigureForm
+    End Function
+
+    Public Sub removeFigureForm(dataForm As FigureForm)
+        'remove an existing RawDataForm from our Queue
+        FigureForms.Remove(dataForm)
+        reOrderFigureForms()
+    End Sub
+
+    Public Sub reOrderFigureForms()
+        'Update the label numbering on our RawDataForms so they remain sequential
+        Dim index As Integer = 1
+        For Each FigureForm As FigureForm In FigureForms
+            FigureForm.Tag = "FigureForm:" + CStr(index)
+            index += 1
+        Next
+    End Sub
+
     Public Sub updateLoadData()
         For Each dataForm As RawDataForm In RawDataForms
             If Not dataForm.bLocked Then
@@ -93,6 +129,11 @@ Public Class DataManager
                 dataForm.loadData()
             End If
         Next
+
+        For Each figForm As FigureForm In FigureForms
+            figForm.loadData()
+        Next
+
 
     End Sub
 
@@ -350,6 +391,30 @@ Public Class DataManager
         Return (outCdd)
     End Function
 
+    Public Function serializeRectangleToXML(rect As Rectangle) As XmlNode
+
+        Dim x As New XmlSerializer(rect.GetType)
+        Dim w As New StringWriter
+        x.Serialize(w, rect)
+
+        Dim xdoc As New XmlDocument
+        xdoc.LoadXml(w.ToString)
+
+        Dim returnNode As XmlNode = config.ImportNode(xdoc.ChildNodes(1), True)
+        Return returnNode
+
+    End Function
+
+    Public Function deserializeRectFromXML(rectNode As XmlNode) As Rectangle
+        Dim x As New XmlSerializer(GetType(Rectangle))
+        Dim sReader As New StringReader(rectNode.OuterXml)
+
+        Dim outRect As New Rectangle
+        outRect = x.Deserialize(sReader)
+        sReader.Close()
+        Return (outRect)
+    End Function
+
     Public Function getDefaultDisplayData(strWhich As String) As chartDisplayData
         Dim defaultXMLNode = config.SelectSingleNode("SmartRiverConfig/GUIConfigs/DefaultComponents/" & strWhich & "/chartDisplayData")
         Return deserializeChartDisplayDataFromXML(defaultXMLNode)
@@ -450,6 +515,8 @@ Public Class DataManager
             dc_typed = CType(DC, FlowVsHabitatChartForm)
         ElseIf TypeOf DC Is SegmentMapLegendForm Then
             dc_typed = CType(DC, SegmentMapLegendForm)
+        ElseIf TypeOf DC Is FigureForm Then
+            dc_typed = CType(DC, FigureForm)
         Else
             MsgBox("Add new type to 'getTypedDC' in DataManager")
         End If
@@ -534,48 +601,48 @@ Public Class DataManager
     End Function
 
     Public Sub CheckAndUpdata_db()
-        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        'db portion not needed yet
-        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        Dim curDB_version As Integer
+        ' ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''db portion not needed yet
+        ' ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'Dim curDB_version As Integer
 
-        Dim check_sql As String = "SELECT name FROM sqlite_master WHERE type='table' AND name='db_version'"
-        If mainSQLDBConnection.State = ConnectionState.Closed Then
-            mainSQLDBConnection.Open()
-        End If
+        'Dim check_sql As String = "SELECT name FROM sqlite_master WHERE type='table' AND name='db_version'"
+        'If mainSQLDBConnection.State = ConnectionState.Closed Then
+        '    mainSQLDBConnection.Open()
+        'End If
 
-        Dim SurveyDatatable As New DataTable
-        Dim sqlDA As New SQLite.SQLiteDataAdapter(check_sql, mainSQLDBConnection)
-        sqlDA.Fill(SurveyDatatable)
+        'Dim SurveyDatatable As New DataTable
+        'Dim sqlDA As New SQLite.SQLiteDataAdapter(check_sql, mainSQLDBConnection)
+        'sqlDA.Fill(SurveyDatatable)
 
 
-        If SurveyDatatable.Rows.Count = 0 Then
-            curDB_version = -1
-        Else
-            Dim strSQL As String = "SELECT max(Version) as curVersion from 'db_version'"
-            SurveyDatatable.Clear()
-            Dim sqlDA2 As New SQLite.SQLiteDataAdapter(strSQL, mainSQLDBConnection)
-            sqlDA2.Fill(SurveyDatatable)
+        'If SurveyDatatable.Rows.Count = 0 Then
+        '    curDB_version = -1
+        'Else
+        '    Dim strSQL As String = "SELECT max(Version) as curVersion from 'db_version'"
+        '    SurveyDatatable.Clear()
+        '    Dim sqlDA2 As New SQLite.SQLiteDataAdapter(strSQL, mainSQLDBConnection)
+        '    sqlDA2.Fill(SurveyDatatable)
 
-            curDB_version = SurveyDatatable.Rows(0)("curVersion")
-        End If
-        mainSQLDBConnection.Close()
+        '    curDB_version = SurveyDatatable.Rows(0)("curVersion")
+        'End If
+        'mainSQLDBConnection.Close()
 
-        If My.Settings.db_version > curDB_version Then
-            'dang it we need to update our xml to have some stuff we'll be expecting...
-            Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
-            If Not IO.Directory.Exists(rootDownloadFolder) Then
-                IO.Directory.CreateDirectory(rootDownloadFolder)
-            End If
+        'If My.Settings.db_version > curDB_version Then
+        '    'dang it we need to update our xml to have some stuff we'll be expecting...
+        '    Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
+        '    If Not IO.Directory.Exists(rootDownloadFolder) Then
+        '        IO.Directory.CreateDirectory(rootDownloadFolder)
+        '    End If
 
-            Dim url As String = My.Settings.db_SB
+        '    Dim url As String = My.Settings.db_SB
 
-            Dim WC As WebClient = New WebClient()
-            WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
-            WC.DownloadFile(New Uri(url), rootDownloadFolder + "\REFDSS_data.sqlite")
+        '    Dim WC As WebClient = New WebClient()
+        '    WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
+        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\REFDSS_data.sqlite")
 
-            updateDBTo1(rootDownloadFolder + "\REFDSS_data.sqlite")
-        End If
+        '    updateDBTo1(rootDownloadFolder + "\REFDSS_data.sqlite")
+        'End If
 
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         'XML config portion...
@@ -590,23 +657,74 @@ Public Class DataManager
             curXML_version = CInt(n.FirstChild.Value)
         End If
 
-        If curXML_version < 1 Then
-            'dang it we need to update our xml to have some stuff we'll be expecting...
-            Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
-            If Not IO.Directory.Exists(rootDownloadFolder) Then
-                IO.Directory.CreateDirectory(rootDownloadFolder)
+        If curXML_version < 3 Then
+            'dang it, they have some older version of the data nothing short of 
+            Dim msg As String
+            msg = "The current data are from a previous version of the Havasu REFDSS"
+            msg += "and need to be replaced with the latest version to be compatible with this version of the application."
+            msg += "Would you like to overwrite the current inputs and session data?" + vbCrLf + vbCrLf
+            msg += vbCrLf & vbCrLf & "If you click 'Yes' previous data will be deleted and the newest versions will be downloaded and updated automatically" + vbCrLf + vbCrLf
+            msg += vbCrLf & "If you click 'No', you will not be able to use the current version of this application" + vbCrLf + vbCrLf
+
+            Dim ans As VariantType = MsgBox(msg, MsgBoxStyle.YesNo, "Overwrite current data?")
+            If ans = vbYes Then
+                msg = "Are you sure that it's ok delete the contents of:" + vbCrLf
+                msg += My.Settings.InputDataDirectory + vbCrLf
+                msg += My.Settings.SessionDirectory + vbCrLf
+
+                Dim doublecheck_ans As VariantType = MsgBox(msg, MsgBoxStyle.YesNo, "Overwrite current data?")
+
+                If doublecheck_ans = vbYes Then
+
+                    mainSQLDBConnection.Close()
+                    mainSQLDBConnection.Dispose()
+                    GC.Collect()
+                    GC.WaitForPendingFinalizers()
+
+                    If System.IO.Directory.Exists(My.Settings.InputDataDirectory) Then
+                        System.IO.Directory.Delete(My.Settings.InputDataDirectory, True)
+                    End If
+                    If System.IO.Directory.Exists(My.Settings.SessionDirectory) Then
+                        System.IO.Directory.Delete(My.Settings.SessionDirectory, True)
+                    End If
+
+
+                    Dim x As New ScienceBaseDownloader(Me.parentMainForm, "CoreData")
+                    x.StartDownload()
+                    x.ShowDialog()
+
+                    If x.canceled Then
+                        'do nothing
+                    End If
+
+                    mainSQLDBConnection = New SQLite.SQLiteConnection()
+                    LoadSessionDirectory(My.Settings.SessionDirectory)
+                End If
             End If
-
-            Dim url As String = My.Settings.xml_SB
-
-            Dim WC As WebClient = New WebClient()
-            WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
-            WC.DownloadFile(New Uri(url), rootDownloadFolder + "\config.xml")
-
-            updateConfigTo1(rootDownloadFolder + "\config.xml")
-        ElseIf curXML_version < 2 Then
-            updateConfigTo2(My.Settings.ConfigXML)
         End If
+
+
+        '    Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
+        '    If Not IO.Directory.Exists(rootDownloadFolder) Then
+        '        IO.Directory.CreateDirectory(rootDownloadFolder)
+        '    End If
+
+        '    Dim url As String = My.Settings.xml_SB
+
+        '    Dim WC As WebClient = New WebClient()
+        '    WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
+        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\config.xml")
+
+        '    updateConfigTo1(rootDownloadFolder + "\config.xml")
+        'End If
+
+        'If curXML_version < 2 Then
+        '    updateConfigTo2(My.Settings.ConfigXML)
+        'End If
+
+        'If Not Directory.Exists(My.Settings.InputDataDirectory + "\Tier1") Then
+        '    DownloadTier1()
+        'End If
 
     End Sub
 
@@ -785,8 +903,9 @@ Public Class DataManager
         xlWorkBook = xlApp.Workbooks.Open(strFile)
         xlWorkSheet = xlWorkBook.Worksheets("wse")
 
+        Dim lastRow As Excel.Range
+        lastRow = xlWorkSheet.Range("C" & xlWorkSheet.Rows.Count).End(Excel.XlDirection.xlUp)
 
-        Dim lastRow As Excel.Range = xlWorkSheet.Range("E2").End(Excel.XlDirection.xlDown)
         Dim r As Excel.Range = xlWorkSheet.Range(xlWorkSheet.Range("A2"), lastRow)
 
         Dim array(,) As Object = r.Value(Excel.XlRangeValueDataType.xlRangeValueDefault)
@@ -808,8 +927,6 @@ Public Class DataManager
         strSQL = "CREATE  TABLE 'main'.'scenario_" & strAbbrev & "' ('Date' DATETIME UNIQUE"
 
         strSQL += ", '" & "topock1" & "' FLOAT"
-        strSQL += ", '" & "SouthDikeWSE" & "' FLOAT"
-        strSQL += ", '" & "CoRivCMS" & "' FLOAT"
         strSQL += ", '" & "ET_AF" & "' FLOAT"
         strSQL += ")"
         strSQL = strSQL.Replace("'", Chr(34))
@@ -839,11 +956,12 @@ Public Class DataManager
         progBar.lblProgress.Text = "Importing data to database"
 
         For row As Integer = 1 To rowsToImport
-            strSQL += "INSERT INTO scenario_" & strAbbrev & " VALUES ('"
             curDate = array(row, 1)
+
+            strSQL += "INSERT INTO scenario_" & strAbbrev & " VALUES ('"
             strSQL += curDate.ToString("yyyy'-'MM'-'dd") + "'"
 
-            For col = 2 To 5
+            For col = 2 To 3
                 strSQL += ", " & array(row, col)
 
             Next
@@ -1583,7 +1701,19 @@ Public Class DataManager
 
     Public Function getLifeStageAbbrev(strSpeciesName, strLifeStageName) As String
         Dim xpath As String = "SmartRiverConfig/SpeciesOfInterest/Species[Name='" & strSpeciesName & "']/Lifestages/Lifestage[Name='" & strLifeStageName & "']/fileAbbrev"
-        Dim node As XmlNode = config.SelectSingleNode(xpath).FirstChild
+
+        Dim node As XmlNode
+        Try
+            node = config.SelectSingleNode(xpath).FirstChild
+        Catch ex As Exception
+            If Not getSpeciesNames().Contains(strSpeciesName) Then
+                strSpeciesName = getSpeciesNames()(0)
+            End If
+            strLifeStageName = getLifeStageNames(strSpeciesName)(0)
+            xpath = "SmartRiverConfig/SpeciesOfInterest/Species[Name='" & strSpeciesName & "']/Lifestages/Lifestage[Name='" & strLifeStageName & "']/fileAbbrev"
+            node = config.SelectSingleNode(xpath).FirstChild
+        End Try
+
         If Not IsNothing(node) Then
             Return node.Value
         Else
@@ -2952,6 +3082,47 @@ Public Class DataManager
 
         config.Save(My.Settings.ConfigXML)
 
+
+    End Sub
+
+    Public Sub DownloadTier1()
+
+        'Download the new Tier1 Data
+        Dim rootDownloadFolder As String = My.Settings.InputDataDirectory + "\" + "tempScienceBaseDownloads"
+        If Not IO.Directory.Exists(rootDownloadFolder) Then
+            IO.Directory.CreateDirectory(rootDownloadFolder)
+        End If
+
+        Dim url As String = "https://www.sciencebase.gov/catalog/file/get/561e6cd0e4b0cdb063e59d38?name=Tier1.zip"
+
+        Dim WC As WebClient = New WebClient()
+        WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
+        WC.DownloadFile(New Uri(url), rootDownloadFolder + "\tier1.zip")
+
+        'Unzip these into our inputs folder
+
+        Dim args(3) As Object
+        args(0) = rootDownloadFolder + "\tier1.zip"
+        args(1) = My.Settings.InputDataDirectory
+        'args(1) = tmpOutFolder
+        args(2) = My.Settings.InputDataDirectory
+
+        UnzipFile(args)
+
+    End Sub
+
+    Private Sub UnzipFile(ByVal args As Object())
+        Dim extractCancelled As Boolean = False
+        Dim zipToRead As String = args(0)
+        Dim extractDir As String = args(1)
+        Try
+            Using zip As ZipFile = ZipFile.Read(zipToRead)
+
+                zip.ExtractAll(extractDir, Ionic.Zip.ExtractExistingFileAction.OverwriteSilently)
+            End Using
+        Catch ex1 As Exception
+            MessageBox.Show(String.Format("There's been a problem extracting that zip file.  {0}", ex1.Message), "Error Extracting", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        End Try
 
     End Sub
 #End Region

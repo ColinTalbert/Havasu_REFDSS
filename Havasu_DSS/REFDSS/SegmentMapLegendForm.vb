@@ -102,6 +102,7 @@ Public Class SegmentMapLegendForm
         Me.dgv_legend.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgv_legend.GridColor = System.Drawing.Color.White
         Me.dgv_legend.Location = New System.Drawing.Point(0, 0)
+        Me.dgv_legend.MinimumSize = New System.Drawing.Size(10, 10)
         Me.dgv_legend.MultiSelect = False
         Me.dgv_legend.Name = "dgv_legend"
         Me.dgv_legend.ReadOnly = True
@@ -140,19 +141,19 @@ Public Class SegmentMapLegendForm
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HabitatToolStripMenuItem, Me.ToolStripSeparator1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 54)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(114, 32)
         '
         'HabitatToolStripMenuItem
         '
         Me.HabitatToolStripMenuItem.CheckOnClick = True
         Me.HabitatToolStripMenuItem.Name = "HabitatToolStripMenuItem"
-        Me.HabitatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HabitatToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.HabitatToolStripMenuItem.Text = "Habitat"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(110, 6)
         Me.ToolStripSeparator1.Tag = "sep"
         '
         'SegmentMapLegendForm
@@ -224,9 +225,9 @@ Public Class SegmentMapLegendForm
 
         dgv_legend.Rows.Clear()
 
-        Dim rowIndex As Integer = 0
+        Dim rowIndex As Integer = 1
         Dim breakNodes As XmlNodeList
-        If curCovariate = "habitat" Then
+        If curCovariate = "Habitat" Then
             breakNodes = MainForm.mainDataManager.habitatBreaks()
         Else
             breakNodes = MainForm.mainDataManager.covariateBreaks(curCovariate)
@@ -240,11 +241,14 @@ Public Class SegmentMapLegendForm
                 breakColor = Drawing.Color.White
             End If
 
-            dgv_legend.Rows(rowIndex).Cells(1).Value = l
-            dgv_legend.Rows(rowIndex).Cells(0).Style.BackColor = breakColor
 
+            dgv_legend.Rows(rowIndex).Cells(0).Style.BackColor = breakColor
+            dgv_legend.Rows(rowIndex).Cells(1).Value = l
             rowIndex += 1
         Next
+
+        'dgv_legend.Rows.RemoveAt(0)
+
     End Sub
 
     Private Sub setCheckedCovariate(strCovariate As String)

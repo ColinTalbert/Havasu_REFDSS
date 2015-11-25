@@ -653,7 +653,7 @@ Next
         If curSingleFlow Then
             flow = "NA"
         Else
-            flow = flowList(0)
+            flow = flowList(flowList.Count - 1)
             flow = getClosestFlow(flow)
             curFlow.Add(flow)
         End If

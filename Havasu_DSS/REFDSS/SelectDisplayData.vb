@@ -35,10 +35,11 @@ Public Class SelectDisplayData
             tcDisplays.TabPages.Remove(tpOtherMetrics)
             pnlInterval.Visible = False
         ElseIf TypeOf mainParentForm Is aggHabitatGraphForm Then
-            tcDisplays.TabPages.Remove(tpOtherMetrics)
+            'tcDisplays.TabPages.Remove(tpOtherMetrics)
             rbDaily.Visible = False
-            pnlInterval.Visible = True
-        ElseIf TypeOf mainParentForm Is RawDataForm Then
+            pnlInterval.Visible = False
+            tpOtherMetrics.Visible = True
+        ElseIf TypeOf mainParentForm Is FigureForm Then
             pnlInterval.Visible = True
         End If
 
@@ -194,7 +195,8 @@ Public Class SelectDisplayData
         Next
 
         If TypeOf mainParentForm Is HydrographGraphForm Or _
-           TypeOf mainParentForm Is RawDataForm Then
+            TypeOf mainParentForm Is aggHabitatGraphForm Or _
+           TypeOf mainParentForm Is FigureForm Then
             For Each item As TreeNode In tvOtherMetrics.Nodes
                 item.Checked = cdd.otherMetrics.Contains(item.Text)
             Next
@@ -202,7 +204,7 @@ Public Class SelectDisplayData
 
         If TypeOf mainParentForm Is HabitatGraphForm Or _
            TypeOf mainParentForm Is aggHabitatGraphForm Or _
-           TypeOf mainParentForm Is RawDataForm Then
+           TypeOf mainParentForm Is FigureForm Then
             For Each item As TreeNode In tvDisplayMetrics.Nodes
                 item.Checked = cdd.displayMetrics.Contains(item.Text)
             Next
@@ -276,7 +278,7 @@ Public Class SelectDisplayData
         Dim NAlist As New List(Of String)
         NAlist.Add("aggRiver")
         If tvRivers.Nodes(0).Checked Then
-            
+
             cdd.rivers.Add("aggAll", NAlist)
         End If
 
@@ -316,7 +318,7 @@ Public Class SelectDisplayData
         Next
 
         If TypeOf mainParentForm Is HydrographGraphForm Or _
-            TypeOf mainParentForm Is RawDataForm Then
+            TypeOf mainParentForm Is FigureForm Then
             cdd.otherMetrics.Clear()
             For Each item As TreeNode In tvOtherMetrics.Nodes
                 If item.Checked Then
@@ -326,11 +328,21 @@ Public Class SelectDisplayData
         End If
         If TypeOf mainParentForm Is HabitatGraphForm Or _
             TypeOf mainParentForm Is aggHabitatGraphForm Or _
+            TypeOf mainParentForm Is FigureForm Or _
             TypeOf mainParentForm Is RawDataForm Then
             cdd.displayMetrics.Clear()
             For Each item As TreeNode In tvDisplayMetrics.Nodes
                 If item.Checked Then
                     cdd.displayMetrics.Add(item.Text)
+                End If
+            Next
+        End If
+
+        If TypeOf mainParentForm Is aggHabitatGraphForm Then
+            cdd.otherMetrics.Clear()
+            For Each item As TreeNode In tvOtherMetrics.Nodes
+                If item.Checked Then
+                    cdd.otherMetrics.Add(item.Text)
                 End If
             Next
         End If

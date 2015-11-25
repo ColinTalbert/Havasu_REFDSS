@@ -75,7 +75,7 @@ Public Class HydrographGraphForm
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1242, 328)
+        Me.Panel1.Size = New System.Drawing.Size(964, 470)
         Me.Panel1.TabIndex = 0
         '
         'lblUniqueDate
@@ -83,7 +83,7 @@ Public Class HydrographGraphForm
         Me.lblUniqueDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblUniqueDate.AutoSize = True
         Me.lblUniqueDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUniqueDate.Location = New System.Drawing.Point(972, 257)
+        Me.lblUniqueDate.Location = New System.Drawing.Point(694, 399)
         Me.lblUniqueDate.Name = "lblUniqueDate"
         Me.lblUniqueDate.Size = New System.Drawing.Size(256, 60)
         Me.lblUniqueDate.TabIndex = 2
@@ -119,6 +119,8 @@ Public Class HydrographGraphForm
         Legend1.Name = "Legend1"
         Me.hydrographChart.Legends.Add(Legend1)
         Me.hydrographChart.Location = New System.Drawing.Point(0, 0)
+        Me.hydrographChart.Margin = New System.Windows.Forms.Padding(0)
+        Me.hydrographChart.MinimumSize = New System.Drawing.Size(10, 10)
         Me.hydrographChart.Name = "hydrographChart"
         Series1.BorderWidth = 2
         Series1.ChartArea = "Default"
@@ -126,14 +128,14 @@ Public Class HydrographGraphForm
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.hydrographChart.Series.Add(Series1)
-        Me.hydrographChart.Size = New System.Drawing.Size(1238, 324)
+        Me.hydrographChart.Size = New System.Drawing.Size(960, 466)
         Me.hydrographChart.TabIndex = 1
         Me.hydrographChart.Text = "HabitatChart"
         '
         'HydrographGraphForm
         '
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1242, 328)
+        Me.ClientSize = New System.Drawing.Size(964, 470)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.Black

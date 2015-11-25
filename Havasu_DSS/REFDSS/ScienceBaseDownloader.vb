@@ -69,16 +69,23 @@ Public Class ScienceBaseDownloader
         Dim jsonURL As String = url.Replace("https://www.sciencebase.gov/catalog/file/get", "https://www.sciencebase.gov/catalog/item")
         jsonURL = jsonURL.Replace("?name=Full.zip", "?format=json")
 
+        Try
+            Dim request As HttpWebRequest = DirectCast(WebRequest.Create(jsonURL), HttpWebRequest)
+            Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+            Dim reader As StreamReader = New StreamReader(response.GetResponseStream())
+            Dim jsonString = reader.ReadToEnd()
+            Dim size As String = jsonString.Substring(jsonString.IndexOf("""size""") + 7)
+            size = size.Substring(0, size.IndexOf("}"))
+            size = size.Substring(0, size.IndexOf(","))
+            pbDownloading.Maximum = CInt(size)
+            reader.Close()
+            response.Close()
+        Catch ex As Exception
+            pbDownloading.Maximum = 2147483647
+        End Try
 
-        Dim request As HttpWebRequest = DirectCast(WebRequest.Create(jsonURL), HttpWebRequest)
-        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
-        Dim reader As StreamReader = New StreamReader(response.GetResponseStream())
-        Dim jsonString = reader.ReadToEnd()
-        Dim size As String = jsonString.Substring(jsonString.IndexOf("""size""") + 7)
-        size = size.Substring(0, size.IndexOf("}"))
-        pbDownloading.Maximum = CInt(size)
-        reader.Close()
-        response.Close()
+
+
 
         WC = New WebClient()
         WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")

@@ -43,7 +43,6 @@ Partial Class MainForm
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveScenariosDBAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetAllDefaultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewFunctionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmViews = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveCurrentView = New System.Windows.Forms.ToolStripMenuItem()
@@ -68,6 +67,9 @@ Partial Class MainForm
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MetricToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImperialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Tier1DataTSM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TablesTSM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FiguresTSM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.tsMapControls = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
@@ -98,6 +100,7 @@ Partial Class MainForm
         Me.txtPeriodStart = New System.Windows.Forms.ToolStripComboBox()
         Me.lblPeriodEnd = New System.Windows.Forms.ToolStripLabel()
         Me.txtPeriodEnd = New System.Windows.Forms.ToolStripComboBox()
+        Me.GuayReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -110,7 +113,7 @@ Partial Class MainForm
         'MenuStrip1
         '
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.tsmViews, Me.WindowsToolStripMenuItem, Me.UnitsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.tsmViews, Me.WindowsToolStripMenuItem, Me.UnitsToolStripMenuItem, Me.Tier1DataTSM, Me.GuayReportToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1284, 24)
@@ -120,7 +123,7 @@ Partial Class MainForm
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem10, Me.ChangeInputDataDirectoryToolStripMenuItem, Me.ToolStripSeparator2, Me.ProjectFileconfigxmlToolStripMenuItem, Me.ChangeSessionDirectory, Me.SaveCurrentSession, Me.CreateNewDefaultSession, Me.ToolStripSeparator1, Me.AddScenarioOASISreformaterxlsToolStripMenuItem, Me.tsmRemoveScenarios, Me.ToolStripSeparator8, Me.ToolStripMenuItem2, Me.ResetAllDefaultsToolStripMenuItem, Me.NewFunctionToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem10, Me.ChangeInputDataDirectoryToolStripMenuItem, Me.ToolStripSeparator2, Me.ProjectFileconfigxmlToolStripMenuItem, Me.ChangeSessionDirectory, Me.SaveCurrentSession, Me.CreateNewDefaultSession, Me.ToolStripSeparator1, Me.AddScenarioOASISreformaterxlsToolStripMenuItem, Me.tsmRemoveScenarios, Me.ToolStripSeparator8, Me.ToolStripMenuItem2, Me.ResetAllDefaultsToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -236,13 +239,7 @@ Partial Class MainForm
         '
         Me.ResetAllDefaultsToolStripMenuItem.Name = "ResetAllDefaultsToolStripMenuItem"
         Me.ResetAllDefaultsToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.ResetAllDefaultsToolStripMenuItem.Text = "Reset all Defaults!"
-        '
-        'NewFunctionToolStripMenuItem
-        '
-        Me.NewFunctionToolStripMenuItem.Name = "NewFunctionToolStripMenuItem"
-        Me.NewFunctionToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.NewFunctionToolStripMenuItem.Text = "New function"
+        Me.ResetAllDefaultsToolStripMenuItem.Text = "Reset Habitat Suitability Curves (HSCs)"
         '
         'tsmViews
         '
@@ -388,6 +385,7 @@ Partial Class MainForm
         Me.UnitsToolStripMenuItem.Name = "UnitsToolStripMenuItem"
         Me.UnitsToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
         Me.UnitsToolStripMenuItem.Text = "Units"
+        Me.UnitsToolStripMenuItem.Visible = False
         '
         'MetricToolStripMenuItem
         '
@@ -402,6 +400,25 @@ Partial Class MainForm
         Me.ImperialToolStripMenuItem.Name = "ImperialToolStripMenuItem"
         Me.ImperialToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.ImperialToolStripMenuItem.Text = "Imperial"
+        '
+        'Tier1DataTSM
+        '
+        Me.Tier1DataTSM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TablesTSM, Me.FiguresTSM})
+        Me.Tier1DataTSM.Name = "Tier1DataTSM"
+        Me.Tier1DataTSM.Size = New System.Drawing.Size(75, 20)
+        Me.Tier1DataTSM.Text = "Tier 1 Data"
+        '
+        'TablesTSM
+        '
+        Me.TablesTSM.Name = "TablesTSM"
+        Me.TablesTSM.Size = New System.Drawing.Size(260, 22)
+        Me.TablesTSM.Text = "Tables (Opens in Excel outside DSS)"
+        '
+        'FiguresTSM
+        '
+        Me.FiguresTSM.Name = "FiguresTSM"
+        Me.FiguresTSM.Size = New System.Drawing.Size(260, 22)
+        Me.FiguresTSM.Text = "Figures"
         '
         'ToolStripContainer1
         '
@@ -540,7 +557,7 @@ Partial Class MainForm
         '
         Me.tsHydrographControls.Dock = System.Windows.Forms.DockStyle.None
         Me.tsHydrographControls.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsbZoomCursor, Me.tsbSelectFlowCursor, Me.ToolStripSeparator6, Me.tsbZoomFullHydro, Me.btnPlay, Me.ToolStripLabel4, Me.cboPlaySpeed})
-        Me.tsHydrographControls.Location = New System.Drawing.Point(263, 24)
+        Me.tsHydrographControls.Location = New System.Drawing.Point(271, 24)
         Me.tsHydrographControls.Name = "tsHydrographControls"
         Me.tsHydrographControls.Size = New System.Drawing.Size(383, 25)
         Me.tsHydrographControls.TabIndex = 10
@@ -680,6 +697,12 @@ Partial Class MainForm
         Me.txtPeriodEnd.Name = "txtPeriodEnd"
         Me.txtPeriodEnd.Size = New System.Drawing.Size(75, 25)
         '
+        'GuayReportToolStripMenuItem
+        '
+        Me.GuayReportToolStripMenuItem.Name = "GuayReportToolStripMenuItem"
+        Me.GuayReportToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
+        Me.GuayReportToolStripMenuItem.Text = "Water Resources Guide"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -780,5 +803,8 @@ Partial Class MainForm
     Friend WithEvents ImperialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsmRemoveScenarios As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MapLegendToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NewFunctionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Tier1DataTSM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TablesTSM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FiguresTSM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GuayReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -4,6 +4,9 @@ Imports System.Xml
 Imports System.IO
 Imports System.Net
 
+Imports Excel = Microsoft.Office.Interop.Excel
+Imports Microsoft.Office
+Imports System.Runtime.InteropServices
 
 'The MainForm is the application shell itself.  It contains:
 '   some toolbars
@@ -49,18 +52,11 @@ Public Class MainForm
         End Try
 
         If My.Application.SplashScreen IsNot Nothing Then
-
             Dim splashScreenDispose As New My.MyApplication.DisposeDelegate(AddressOf My.Application.SplashScreen.Dispose)
-
             My.Application.SplashScreen.Invoke(splashScreenDispose)
-
             My.Application.SplashScreen = Nothing
-
-            'Me.TopMost = True
             Me.Activate()
-
         End If
-
 
         'If Not mainDataManager.validConfig = "True" Then
         Me.Show()
@@ -70,11 +66,13 @@ Public Class MainForm
 
     Private Sub InitializeContent()
         ' 
+
+
         resetDockPanel()
 
         mainDataManager = New DataManager(Me)
         If Me.mainDataManager.validConfig = "True" Then
-
+            initializeFigures()
             chartFormater = New ChartDisplayControl
             'chartFormater.setGraphManager(mainGraphManager)
             'chartFormater.setHydrographManager(mainHydrographManager)
@@ -87,6 +85,9 @@ Public Class MainForm
             initializeViews()
 
             initializeScenarios()
+
+            initializeTables()
+
 
             mainHydrographManager.updateCursor("select")
             'mainMapManager.ZoomFull()
@@ -131,10 +132,15 @@ Public Class MainForm
             Dim strTmpOutFile As String = System.IO.Path.GetTempFileName()
             mainDataManager.saveLayoutXML(strTmpOutFile)
 
-            mainDockPanel.LoadFromXml(strTmpOutFile, AddressOf ReloadContent)
-            System.IO.File.Delete(strTmpOutFile)
+            Try
+                mainDockPanel.LoadFromXml(strTmpOutFile, AddressOf ReloadContent)
+                System.IO.File.Delete(strTmpOutFile)
+                mainDataManager.loadPreviousGUISettings()
+            Catch
 
-            mainDataManager.loadPreviousGUISettings()
+            End Try
+
+            
 
             mainHydrographManager.updateCursor("select")
         End If
@@ -154,9 +160,6 @@ Public Class MainForm
     End Sub
 
     Private Sub RawDataToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RawDataToolStripMenuItem.Click
-
-
-
         mainDataManager.addRawDataForm()
     End Sub
 
@@ -266,6 +269,8 @@ Public Class MainForm
             Return mainDataManager.addRawDataForm(False)
         ElseIf persistString.EndsWith(".FlowVsHabitatChartForm") Then
             Return mainGraphManager.addflowVsHabitatGraphForm(False)
+        ElseIf persistString.EndsWith(".FigureForm") Then
+            Return mainDataManager.addFigureForm(show:=False)
         End If
 
 
@@ -455,6 +460,81 @@ Public Class MainForm
             addView(n.SelectSingleNode("Name").FirstChild.Value)
         Next
     End Sub
+    Private Sub initializeTables()
+        Dim Tier1TablesDname As String = Path.Combine(My.Settings.InputDataDirectory, "Tier1", "Tables")
+
+        TablesTSM.DropDownItems.Clear()
+
+        Dim TablesInfoReader As New Microsoft.VisualBasic.
+                      FileIO.TextFieldParser(
+                        Path.Combine(Tier1TablesDname, "TableInfo.csv"))
+        TablesInfoReader.TextFieldType = FileIO.FieldType.Delimited
+        TablesInfoReader.SetDelimiters(",")
+
+        Dim headerRow As String() = TablesInfoReader.ReadFields()
+        Dim currentRow As String()
+        While Not TablesInfoReader.EndOfData
+            Try
+                currentRow = TablesInfoReader.ReadFields()
+                addTable(currentRow(0), currentRow(1), currentRow(2))
+
+            Catch ex As Microsoft.VisualBasic.
+                        FileIO.MalformedLineException
+                MsgBox("Line " & ex.Message &
+                "is not valid and will be skipped.")
+            End Try
+        End While
+
+    End Sub
+
+    Private Sub addTable(strTableFName As String, strSheetName As String, strTableCaption As String)
+        'create a menu item for this view for the main select list
+        Dim menuitem As New ToolStripMenuItem
+        menuitem.Name = strSheetName.Trim()
+        menuitem.Text = strTableCaption
+        menuitem.Tag = strTableFName + "||||" + strSheetName
+        menuitem.CheckOnClick = False
+        AddHandler menuitem.Click, AddressOf TableClick
+        TablesTSM.DropDownItems.Add(menuitem)
+    End Sub
+
+    Private Sub addFigure(strFigureName As String, strFigureCaption As String)
+        'create a menu item for this view for the main select list
+        Dim menuitem As New ToolStripMenuItem
+        menuitem.Name = strFigureName
+        menuitem.Text = strFigureName + ":   " + strFigureCaption
+        menuitem.Tag = strFigureName
+        menuitem.CheckOnClick = False
+        AddHandler menuitem.Click, AddressOf FigureClick
+        FiguresTSM.DropDownItems.Add(menuitem)
+    End Sub
+    Private Sub initializeFigures()
+        Dim Tier1FigureDname As String = Path.Combine(My.Settings.InputDataDirectory, "Tier1", "Figures")
+
+        FiguresTSM.DropDownItems.Clear()
+
+
+        Dim FigureInfoReader As New Microsoft.VisualBasic.
+                      FileIO.TextFieldParser(
+                        Path.Combine(Tier1FigureDname, "FigureInfo.csv"))
+        FigureInfoReader.TextFieldType = FileIO.FieldType.Delimited
+        FigureInfoReader.SetDelimiters(",")
+
+        Dim headerRow As String() = FigureInfoReader.ReadFields()
+        Dim currentRow As String()
+        While Not FigureInfoReader.EndOfData
+            Try
+                currentRow = FigureInfoReader.ReadFields()
+                addFigure(Path.GetFileNameWithoutExtension(currentRow(0)), currentRow(1))
+
+            Catch ex As Microsoft.VisualBasic.
+                        FileIO.MalformedLineException
+                MsgBox("Line " & ex.Message &
+                "is not valid and will be skipped.")
+            End Try
+        End While
+
+    End Sub
 
     Private Sub addScenario(strScenario As String)
         'also create another menu item for the delete view list
@@ -566,13 +646,10 @@ Public Class MainForm
         txtPeriodStart.Text = mainDataManager.curStartYear - 1
         txtPeriodEnd.Text = mainDataManager.curEndYear
 
-
         For i As Integer = CInt(mainDataManager.getStartDate.Year()) To CInt(mainDataManager.getEndDate.Year())
             txtPeriodStart.Items.Add(CStr(i))
             txtPeriodEnd.Items.Add(CStr(i))
         Next
-
-
 
     End Sub
 
@@ -769,6 +846,8 @@ Public Class MainForm
             parentNode.ReplaceChild(newReplacementNode, speciesNode)
         Next
         mainDataManager.config.Save(My.Settings.ConfigXML)
+
+        HabitatGenerator = HabitatSuitibilityGeneratorForm.Instance(Me)
         HabitatGenerator.loadDisplaySelectors()
         HabitatGenerator.updateHSCControl()
 
@@ -898,8 +977,6 @@ Public Class MainForm
                 My.Settings.SQliteDB = FileBrowserDialog1.FileName
                 mainDataManager.setSetting("SQLiteDB", FileBrowserDialog1.FileName)
                 mainDataManager.saveconfig()
-
-
             Else
                 Exit Sub
 
@@ -935,4 +1012,60 @@ Public Class MainForm
         mainHydrographManager.updateLoadData()
     End Sub
 
+    Private Sub TableClick(sender As Object, e As EventArgs)
+        Dim strTableFname = sender.Tag.Split(New String() {"||||"}, StringSplitOptions.RemoveEmptyEntries)(0)
+        Dim strSheetName = sender.Tag.Split(New String() {"||||"}, StringSplitOptions.RemoveEmptyEntries)(1)
+
+        OpenExcel(Path.Combine(My.Settings.InputDataDirectory, "Tier1\Tables", strTableFname), strSheetName)
+    End Sub
+    Public Sub OpenExcel(ByVal FileName As String, Optional ByVal SheetName As String = "")
+        If IO.File.Exists(FileName) Then
+            Dim Proceed As Boolean = False
+            Dim xlApp As Excel.Application = Nothing
+            Dim xlWorkBooks As Excel.Workbooks = Nothing
+            Dim xlWorkBook As Excel.Workbook = Nothing
+            Dim xlWorkSheet As Excel.Worksheet = Nothing
+            Dim xlWorkSheets As Excel.Sheets = Nothing
+            Dim xlCells As Excel.Range = Nothing
+            xlApp = New Excel.Application
+            xlApp.DisplayAlerts = False
+            xlWorkBooks = xlApp.Workbooks
+            xlWorkBook = xlWorkBooks.Open(FileName)
+            xlApp.Visible = True
+            xlWorkSheets = xlWorkBook.Sheets
+            For x As Integer = 1 To xlWorkSheets.Count
+                xlWorkSheet = CType(xlWorkSheets(x), Excel.Worksheet)
+                If xlWorkSheet.Name = SheetName Then
+                    Console.WriteLine(SheetName)
+                    Proceed = True
+                    Exit For
+                End If
+                Runtime.InteropServices.Marshal.FinalReleaseComObject(xlWorkSheet)
+                xlWorkSheet = Nothing
+            Next
+            If Proceed Then
+                xlWorkSheet.Activate()
+            End If
+        Else
+            MessageBox.Show("'" & FileName & "' not located. Try one of the write examples first.")
+        End If
+    End Sub
+
+    Public Sub ReleaseComObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+        End Try
+    End Sub
+
+    Private Sub FigureClick(sender As Object, e As EventArgs)
+        mainDataManager.addFigureForm(sender.text)
+    End Sub
+
+
+    Private Sub GuayReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuayReportToolStripMenuItem.Click
+        System.Diagnostics.Process.Start(Path.Combine(My.Settings.InputDataDirectory, "GuayReport\Topock Water Resources Guide-Final 2012 (Guay).pdf"))
+    End Sub
 End Class

@@ -13,7 +13,7 @@
     <AssemblyName>Havasu_REFDSS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>true</IsWebBootstrapper>
@@ -30,8 +30,8 @@
     <InstallUrl>https://raw.githubusercontent.com/ColinTalbert/Havasu_REFDSS/master/DeploymentPackage/Software/HavasuDSS_deploy/</InstallUrl>
     <ProductName>Havasu_REFDSS</ProductName>
     <PublisherName>Fort Collins Science Center</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.1.3.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -185,15 +185,14 @@
   <ItemGroup>
     <Reference Include="AxInterop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\AxInterop.MapWinGIS.dll</HintPath>
+      <HintPath>C:\Program Files\MapWindow\AxInterop.MapWinGIS.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.MapWinGIS, Version=4.8.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\Interop.MapWinGIS.dll</HintPath>
+    <Reference Include="Interop.MapWinGIS">
+      <HintPath>C:\Program Files\MapWindow\Interop.MapWinGIS.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\zip-v1.9\Ionic.Zip.dll</HintPath>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -228,13 +227,13 @@
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+    <Reference Include="System.Data.SQLite, Version=1.0.77.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\System.Data.SQLite.dll</HintPath>
+      <HintPath>C:\Program Files\System.Data.SQLite\2010\bin\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.77.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Delaware_DSS\2011_DSS\Tools\DelawareDSS_dock\Delaware_DSS\Delaware_DSS\bin\x64\Release\System.Data.SQLite.Linq.dll</HintPath>
+      <HintPath>C:\Program Files\System.Data.SQLite\2010\bin\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Deployment">
       <Private>True</Private>
@@ -285,16 +284,13 @@
     <Compile Include="FlowVsHabitatChartForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ImportScenarioProgress.Designer.vb">
       <DependentUpon>ImportScenarioProgress.vb</DependentUpon>
     </Compile>
     <Compile Include="ImportScenarioProgress.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FigureForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SegmentMapLegendForm.vb">
@@ -401,11 +397,12 @@
     <EmbeddedResource Include="FlowVsHabitatChartForm.resx">
       <DependentUpon>FlowVsHabitatChartForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ImportScenarioProgress.resx">
       <DependentUpon>ImportScenarioProgress.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FigureForm.resx">
+      <DependentUpon>FigureForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SegmentMapLegendForm.resx">
@@ -614,6 +611,12 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomPictureBox\ZPBLib.vbproj">
+      <Project>{f2b22135-f137-4ce7-a552-cb6630a24c24}</Project>
+      <Name>ZPBLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

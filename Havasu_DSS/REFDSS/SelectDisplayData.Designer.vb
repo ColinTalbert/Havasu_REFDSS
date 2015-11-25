@@ -119,7 +119,7 @@ Partial Class SelectDisplayData
         'cboBaseline
         '
         Me.cboBaseline.FormattingEnabled = True
-        Me.cboBaseline.Location = New System.Drawing.Point(88, 103)
+        Me.cboBaseline.Location = New System.Drawing.Point(88, 447)
         Me.cboBaseline.Name = "cboBaseline"
         Me.cboBaseline.Size = New System.Drawing.Size(212, 21)
         Me.cboBaseline.TabIndex = 16
@@ -128,7 +128,7 @@ Partial Class SelectDisplayData
         '
         Me.lblBaseline.AutoSize = True
         Me.lblBaseline.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBaseline.Location = New System.Drawing.Point(9, 104)
+        Me.lblBaseline.Location = New System.Drawing.Point(12, 448)
         Me.lblBaseline.Name = "lblBaseline"
         Me.lblBaseline.Size = New System.Drawing.Size(73, 16)
         Me.lblBaseline.TabIndex = 15
@@ -138,7 +138,7 @@ Partial Class SelectDisplayData
         '
         Me.lblDailyFlow.AutoSize = True
         Me.lblDailyFlow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDailyFlow.Location = New System.Drawing.Point(16, 531)
+        Me.lblDailyFlow.Location = New System.Drawing.Point(16, 541)
         Me.lblDailyFlow.Name = "lblDailyFlow"
         Me.lblDailyFlow.Size = New System.Drawing.Size(105, 16)
         Me.lblDailyFlow.TabIndex = 14
@@ -146,10 +146,11 @@ Partial Class SelectDisplayData
         '
         'pnlDailyFlow
         '
+        Me.pnlDailyFlow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlDailyFlow.BackColor = System.Drawing.Color.White
         Me.pnlDailyFlow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlDailyFlow.Controls.Add(Me.chkShowHydro)
-        Me.pnlDailyFlow.Location = New System.Drawing.Point(12, 550)
+        Me.pnlDailyFlow.Location = New System.Drawing.Point(12, 560)
         Me.pnlDailyFlow.Name = "pnlDailyFlow"
         Me.pnlDailyFlow.Size = New System.Drawing.Size(288, 33)
         Me.pnlDailyFlow.TabIndex = 13
@@ -197,7 +198,7 @@ Partial Class SelectDisplayData
         Me.tvScenario.HideSelection = False
         Me.tvScenario.Location = New System.Drawing.Point(12, 24)
         Me.tvScenario.Name = "tvScenario"
-        Me.tvScenario.Size = New System.Drawing.Size(288, 77)
+        Me.tvScenario.Size = New System.Drawing.Size(288, 417)
         Me.tvScenario.TabIndex = 10
         '
         'tvRivers
@@ -213,8 +214,9 @@ Partial Class SelectDisplayData
         TreeNode4.Name = "AggByRiver"
         TreeNode4.Text = "By river or segment"
         Me.tvRivers.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode4})
-        Me.tvRivers.Size = New System.Drawing.Size(288, 278)
+        Me.tvRivers.Size = New System.Drawing.Size(288, 44)
         Me.tvRivers.TabIndex = 9
+        Me.tvRivers.Visible = False
         '
         'lblScenario
         '
@@ -235,6 +237,7 @@ Partial Class SelectDisplayData
         Me.Label2.Size = New System.Drawing.Size(111, 16)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "River/Segment"
+        Me.Label2.Visible = False
         '
         'tcDisplays
         '
@@ -532,6 +535,7 @@ Partial Class SelectDisplayData
         Me.pnlInterval.Name = "pnlInterval"
         Me.pnlInterval.Size = New System.Drawing.Size(266, 22)
         Me.pnlInterval.TabIndex = 12
+        Me.pnlInterval.Visible = False
         '
         'Label12
         '
@@ -542,6 +546,7 @@ Partial Class SelectDisplayData
         Me.Label12.Size = New System.Drawing.Size(54, 13)
         Me.Label12.TabIndex = 10
         Me.Label12.Text = "Interval:"
+        Me.Label12.Visible = False
         '
         'pnlLimitTimePeriod
         '

@@ -265,6 +265,10 @@ Public Class aggHabitatGraphForm
         Next
 
 
+        For Each otherMetric As String In curDisplayData.otherMetrics
+            MsgBox(otherMetric)
+        Next
+
 
         If HabitatChart.Series.Count > 0 Then
 

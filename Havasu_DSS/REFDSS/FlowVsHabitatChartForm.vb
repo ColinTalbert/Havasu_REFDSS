@@ -93,6 +93,7 @@ Public Class FlowVsHabitatChartForm
         Legend1.Name = "Legend1"
         Me.HabitatChart.Legends.Add(Legend1)
         Me.HabitatChart.Location = New System.Drawing.Point(0, 0)
+        Me.HabitatChart.MinimumSize = New System.Drawing.Size(10, 10)
         Me.HabitatChart.Name = "HabitatChart"
         Me.HabitatChart.Size = New System.Drawing.Size(818, 719)
         Me.HabitatChart.TabIndex = 0
