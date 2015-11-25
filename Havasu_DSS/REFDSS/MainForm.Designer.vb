@@ -70,6 +70,7 @@ Partial Class MainForm
         Me.Tier1DataTSM = New System.Windows.Forms.ToolStripMenuItem()
         Me.TablesTSM = New System.Windows.Forms.ToolStripMenuItem()
         Me.FiguresTSM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuayReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.tsMapControls = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
@@ -100,7 +101,6 @@ Partial Class MainForm
         Me.txtPeriodStart = New System.Windows.Forms.ToolStripComboBox()
         Me.lblPeriodEnd = New System.Windows.Forms.ToolStripLabel()
         Me.txtPeriodEnd = New System.Windows.Forms.ToolStripComboBox()
-        Me.GuayReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -420,12 +420,18 @@ Partial Class MainForm
         Me.FiguresTSM.Size = New System.Drawing.Size(260, 22)
         Me.FiguresTSM.Text = "Figures"
         '
+        'GuayReportToolStripMenuItem
+        '
+        Me.GuayReportToolStripMenuItem.Name = "GuayReportToolStripMenuItem"
+        Me.GuayReportToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
+        Me.GuayReportToolStripMenuItem.Text = "Water Resources Guide"
+        '
         'ToolStripContainer1
         '
         '
         'ToolStripContainer1.ContentPanel
         '
-        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 681)
+        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1284, 656)
         Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStripContainer1.Name = "ToolStripContainer1"
@@ -557,7 +563,7 @@ Partial Class MainForm
         '
         Me.tsHydrographControls.Dock = System.Windows.Forms.DockStyle.None
         Me.tsHydrographControls.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsbZoomCursor, Me.tsbSelectFlowCursor, Me.ToolStripSeparator6, Me.tsbZoomFullHydro, Me.btnPlay, Me.ToolStripLabel4, Me.cboPlaySpeed})
-        Me.tsHydrographControls.Location = New System.Drawing.Point(271, 24)
+        Me.tsHydrographControls.Location = New System.Drawing.Point(3, 49)
         Me.tsHydrographControls.Name = "tsHydrographControls"
         Me.tsHydrographControls.Size = New System.Drawing.Size(383, 25)
         Me.tsHydrographControls.TabIndex = 10
@@ -696,12 +702,6 @@ Partial Class MainForm
         Me.txtPeriodEnd.MaxLength = 4
         Me.txtPeriodEnd.Name = "txtPeriodEnd"
         Me.txtPeriodEnd.Size = New System.Drawing.Size(75, 25)
-        '
-        'GuayReportToolStripMenuItem
-        '
-        Me.GuayReportToolStripMenuItem.Name = "GuayReportToolStripMenuItem"
-        Me.GuayReportToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
-        Me.GuayReportToolStripMenuItem.Text = "Water Resources Guide"
         '
         'MainForm
         '
