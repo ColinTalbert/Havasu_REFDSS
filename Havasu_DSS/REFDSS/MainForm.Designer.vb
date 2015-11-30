@@ -423,8 +423,8 @@ Partial Class MainForm
         'GuayReportToolStripMenuItem
         '
         Me.GuayReportToolStripMenuItem.Name = "GuayReportToolStripMenuItem"
-        Me.GuayReportToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
-        Me.GuayReportToolStripMenuItem.Text = "Water Resources Guide"
+        Me.GuayReportToolStripMenuItem.Size = New System.Drawing.Size(205, 20)
+        Me.GuayReportToolStripMenuItem.Text = "Water Resources Guide (Guay 2012)"
         '
         'ToolStripContainer1
         '
@@ -563,9 +563,9 @@ Partial Class MainForm
         '
         Me.tsHydrographControls.Dock = System.Windows.Forms.DockStyle.None
         Me.tsHydrographControls.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsbZoomCursor, Me.tsbSelectFlowCursor, Me.ToolStripSeparator6, Me.tsbZoomFullHydro, Me.btnPlay, Me.ToolStripLabel4, Me.cboPlaySpeed})
-        Me.tsHydrographControls.Location = New System.Drawing.Point(295, 24)
+        Me.tsHydrographControls.Location = New System.Drawing.Point(261, 24)
         Me.tsHydrographControls.Name = "tsHydrographControls"
-        Me.tsHydrographControls.Size = New System.Drawing.Size(414, 25)
+        Me.tsHydrographControls.Size = New System.Drawing.Size(383, 25)
         Me.tsHydrographControls.TabIndex = 10
         Me.tsHydrographControls.Text = "ToolStrip2"
         '
