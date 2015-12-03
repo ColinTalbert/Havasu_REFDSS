@@ -214,17 +214,14 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad587be4b066a249242180?name=Full.z"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/55ad345be4b066a2492409b0?name=Full.z"& _ 
             "ip")>  _
-        Public Property SB_Full() As String
+        Public ReadOnly Property SB_Full() As String
             Get
                 Return CType(Me("SB_Full"),String)
             End Get
-            Set
-                Me("SB_Full") = value
-            End Set
         End Property
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
