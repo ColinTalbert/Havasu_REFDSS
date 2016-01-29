@@ -747,7 +747,7 @@ Public Class MainForm
 
     Private Sub ChangeSessionDirectory_Click(sender As System.Object, e As System.EventArgs) Handles ChangeSessionDirectory.Click
         Dim folderBrowserDialog1 As New FolderBrowserDialog
-        folderBrowserDialog1.Description = "Select an existing REFDSS Session Directory"
+        folderBrowserDialog1.Description = "Select an existing DSS Session Directory"
         folderBrowserDialog1.SelectedPath = My.Settings.SessionDirectory
         If folderBrowserDialog1.ShowDialog = DialogResult.OK Then
             Dim isValidSessionDir As String = isSessionDirectory(folderBrowserDialog1.SelectedPath)
@@ -759,7 +759,7 @@ Public Class MainForm
                 My.Settings.Save()
             Else
                 Dim msg As String
-                msg = "The selected directory doesn't appear to be a valid REFDSSS directory"
+                msg = "The selected directory doesn't appear to be a valid DSS directory"
                 msg += vbCrLf + "Specifically it: " + isValidSessionDir
                 MsgBox(msg, MsgBoxStyle.Exclamation, "Invalid Session Directory Selected")
                 Exit Sub
@@ -784,7 +784,7 @@ Public Class MainForm
             mainDataManager.saveconfig()
 
             FileCopy(My.Settings.ConfigXML, Path.Combine(folderBrowserDialog1.SelectedPath, "config.xml"))
-            FileCopy(My.Settings.SQliteDB, Path.Combine(folderBrowserDialog1.SelectedPath, "REFDSS_data.sqlite"))
+            FileCopy(My.Settings.SQliteDB, Path.Combine(folderBrowserDialog1.SelectedPath, "HavasuDSS_data.sqlite"))
             MkDir(Path.Combine(folderBrowserDialog1.SelectedPath, "Outputs"))
 
             My.Settings.SessionDirectory = folderBrowserDialog1.SelectedPath
@@ -810,7 +810,7 @@ Public Class MainForm
             mainDataManager.saveconfig()
 
             FileCopy(Path.Combine(My.Settings.InputDataDirectory, "config.xml"), Path.Combine(folderBrowserDialog1.SelectedPath, "config.xml"))
-            FileCopy(Path.Combine(My.Settings.InputDataDirectory, "REFDSS_data.sqlite"), Path.Combine(folderBrowserDialog1.SelectedPath, "REFDSS_data.sqlite"))
+            FileCopy(Path.Combine(My.Settings.InputDataDirectory, "HavasuDSS_data.sqlite"), Path.Combine(folderBrowserDialog1.SelectedPath, "HavasuDSS_data.sqlite"))
             MkDir(Path.Combine(folderBrowserDialog1.SelectedPath, "Outputs"))
 
             My.Settings.SessionDirectory = folderBrowserDialog1.SelectedPath
@@ -876,7 +876,7 @@ Public Class MainForm
             Else
                 .InitialDirectory = Environment.SpecialFolder.MyComputer
             End If
-            .Title = "Scenario/flows database (REFDSS_data.sqlite)"
+            .Title = "Scenario/flows database (HavasuDSS_data.sqlite)"
             .AddExtension = True
             .DefaultExt = ".sqlite"
             .CheckFileExists = False

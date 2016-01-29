@@ -6084,7 +6084,7 @@ Each 'GUIConfig' contains all the info for a single layout.  The DockPanel secti
     <RelativePaths>True</RelativePaths>
     <OutputDataDirectory>C:\temp\HavasuTest\DefaultSessionDirectory\Outputs</OutputDataDirectory>
     <InputDataDirectory>C:\temp\HavasuTest\inputs</InputDataDirectory>
-    <SQLiteDB>C:\temp\HavasuTest\DefaultSessionDirectory\REFDSS_data.sqlite</SQLiteDB>
+    <SQLiteDB>C:\temp\HavasuTest\DefaultSessionDirectory\HavasuDSS_data.sqlite</SQLiteDB>
     <OriginalConfigPath>Z:\asb\Delaware_DSS\2011_DSS\DerivedData\InitialWorkspace\DefaultSessionDirectory\config.xml</OriginalConfigPath>
     <Application>
       <ApplicationTitle>Delaware River Decision Suport System</ApplicationTitle>

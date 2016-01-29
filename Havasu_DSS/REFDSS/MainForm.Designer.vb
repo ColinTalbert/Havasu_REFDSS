@@ -227,7 +227,7 @@ Partial Class MainForm
         '
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Name = "ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem"
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
-        Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Text = "Set Scenarios DB (REFDSS_data.sqlite)"
+        Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Text = "Set Scenarios DB (HavasuDSS_data.sqlite)"
         '
         'SaveScenariosDBAsToolStripMenuItem
         '
@@ -711,7 +711,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.ToolStripContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
-        Me.Text = "Havasu REFDSS"
+        Me.Text = "Havasu NWR DSS"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ToolStripContainer1.TopToolStripPanel.ResumeLayout(False)

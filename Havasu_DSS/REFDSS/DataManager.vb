@@ -639,9 +639,9 @@ Public Class DataManager
 
         '    Dim WC As WebClient = New WebClient()
         '    WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
-        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\REFDSS_data.sqlite")
+        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\HavasuDSS_data.sqlite")
 
-        '    updateDBTo1(rootDownloadFolder + "\REFDSS_data.sqlite")
+        '    updateDBTo1(rootDownloadFolder + "\HavasuDSS_data.sqlite")
         'End If
 
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -660,7 +660,7 @@ Public Class DataManager
         If curXML_version < 3 Then
             'dang it, they have some older version of the data nothing short of 
             Dim msg As String
-            msg = "The current data are from a previous version of the Havasu REFDSS"
+            msg = "The current data are from a previous version of the Havasu NWR DSS"
             msg += "and need to be replaced with the latest version to be compatible with this version of the application."
             msg += "Would you like to overwrite the current inputs and session data?" + vbCrLf + vbCrLf
             msg += vbCrLf & vbCrLf & "If you click 'Yes' previous data will be deleted and the newest versions will be downloaded and updated automatically" + vbCrLf + vbCrLf
@@ -732,14 +732,14 @@ Public Class DataManager
         If isSessionDirectory(strSessionDir) Then
 
             My.Settings.SessionDirectory = strSessionDir
-            parentMainForm.Text = "Havasu REFDSS - " + strSessionDir
+            parentMainForm.Text = "Havasu NWR DSS - " + strSessionDir
             My.Settings.ConfigXML = Path.Combine(My.Settings.SessionDirectory, "config.xml")
             config.Load(My.Settings.ConfigXML)
 
             My.Settings.OutputDataDirectory = Path.Combine(My.Settings.SessionDirectory, "Outputs")
             setSetting("OutputDataDirectory", Path.Combine(My.Settings.SessionDirectory, "Outputs"))
 
-            My.Settings.SQliteDB = Path.Combine(My.Settings.SessionDirectory, "REFDSS_data.sqlite")
+            My.Settings.SQliteDB = Path.Combine(My.Settings.SessionDirectory, "HavasuDSS_data.sqlite")
             Dim connectionstring As String = "Data Source=" & My.Settings.SQliteDB & ";"
             mainSQLDBConnection.ConnectionString = connectionstring
             setSetting("SQLiteDB", My.Settings.SQliteDB)

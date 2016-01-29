@@ -55,10 +55,10 @@ Partial Class WelcomeToTheDSS
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(439, 192)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(171, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(180, 13)
         Me.LinkLabel1.TabIndex = 1
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Havasu REFDSS on ScienceBase"
+        Me.LinkLabel1.Text = "Havasu NWR DSS on ScienceBase"
         '
         'Label2
         '
@@ -199,7 +199,7 @@ Partial Class WelcomeToTheDSS
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "WelcomeToTheDSS"
-        Me.Text = "Welcome to the Delaware WaterSmart DSS"
+        Me.Text = "Welcome to the Havasu NWR DSS"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

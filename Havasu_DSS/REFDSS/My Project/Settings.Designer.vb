@@ -116,7 +116,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Havasu River Decision Support System")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Havasu NWR Decision Support System")>  _
         Public Property ApplicationTitle() As String
             Get
                 Return CType(Me("ApplicationTitle"),String)
@@ -128,7 +128,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Welcome to the Havasu REFDSS")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Welcome to the Havasu NWR DSS")>  _
         Public Property WelcomeTitle() As String
             Get
                 Return CType(Me("WelcomeTitle"),String)

@@ -18,10 +18,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ApplicationTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Havasu River Decision Support System</Value>
+      <Value Profile="(Default)">Havasu NWR Decision Support System</Value>
     </Setting>
     <Setting Name="WelcomeTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Welcome to the Havasu REFDSS</Value>
+      <Value Profile="(Default)">Welcome to the Havasu NWR DSS</Value>
     </Setting>
     <Setting Name="verbose" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
