@@ -34,7 +34,7 @@ Partial Class frmSplash
         '
         'Panel1
         '
-        Me.Panel1.BackgroundImage = Global.Havasu_REFDSS.My.Resources.Resources.SpashScreenGraphic_havasu2
+        Me.Panel1.BackgroundImage = Global.Havasu_DSS.My.Resources.Resources.SpashScreenGraphic_havasu2
         Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.lblVersion)

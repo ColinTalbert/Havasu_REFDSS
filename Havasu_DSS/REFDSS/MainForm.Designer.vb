@@ -227,7 +227,7 @@ Partial Class MainForm
         '
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Name = "ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem"
         Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
-        Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Text = "Set Scenarios DB (HavasuDSS_data.sqlite)"
+        Me.ChangeScenariosflowsDelewareDSSdatasqliteToolStripMenuItem.Text = "Set Scenarios DB (DSS_data.sqlite)"
         '
         'SaveScenariosDBAsToolStripMenuItem
         '
@@ -293,7 +293,7 @@ Partial Class MainForm
         '
         'tsmOverviewMap
         '
-        Me.tsmOverviewMap.Image = Global.Havasu_REFDSS.My.Resources.Resources.world
+        Me.tsmOverviewMap.Image = Global.Havasu_DSS.My.Resources.Resources.world
         Me.tsmOverviewMap.Name = "tsmOverviewMap"
         Me.tsmOverviewMap.Size = New System.Drawing.Size(220, 22)
         Me.tsmOverviewMap.Text = "Overview Map"
@@ -301,14 +301,14 @@ Partial Class MainForm
         '
         'MapToolStripMenuItem
         '
-        Me.MapToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.map
+        Me.MapToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.map
         Me.MapToolStripMenuItem.Name = "MapToolStripMenuItem"
         Me.MapToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.MapToolStripMenuItem.Text = "Segment Map"
         '
         'MapLegendToolStripMenuItem
         '
-        Me.MapLegendToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.legend
+        Me.MapLegendToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.legend
         Me.MapLegendToolStripMenuItem.Name = "MapLegendToolStripMenuItem"
         Me.MapLegendToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.MapLegendToolStripMenuItem.Text = "Map Legend"
@@ -320,7 +320,7 @@ Partial Class MainForm
         '
         'HabitatSuitibilityGeneratorToolStripMenuItem
         '
-        Me.HabitatSuitibilityGeneratorToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.applications_development
+        Me.HabitatSuitibilityGeneratorToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.applications_development
         Me.HabitatSuitibilityGeneratorToolStripMenuItem.Name = "HabitatSuitibilityGeneratorToolStripMenuItem"
         Me.HabitatSuitibilityGeneratorToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.HabitatSuitibilityGeneratorToolStripMenuItem.Text = "Habitat Suitibility Generator"
@@ -332,14 +332,14 @@ Partial Class MainForm
         '
         'GraphToolStripMenuItem
         '
-        Me.GraphToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.office_chart_line
+        Me.GraphToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.office_chart_line
         Me.GraphToolStripMenuItem.Name = "GraphToolStripMenuItem"
         Me.GraphToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.GraphToolStripMenuItem.Text = "Hydrograph"
         '
         'SystemWideMetricsToolStripMenuItem
         '
-        Me.SystemWideMetricsToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.office_chart_bar_stacked
+        Me.SystemWideMetricsToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.office_chart_bar_stacked
         Me.SystemWideMetricsToolStripMenuItem.Name = "SystemWideMetricsToolStripMenuItem"
         Me.SystemWideMetricsToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.SystemWideMetricsToolStripMenuItem.Text = "System Wide Metrics"
@@ -347,7 +347,7 @@ Partial Class MainForm
         '
         'ResultsGraphToolStripMenuItem
         '
-        Me.ResultsGraphToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.office_chart_bar
+        Me.ResultsGraphToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.office_chart_bar
         Me.ResultsGraphToolStripMenuItem.Name = "ResultsGraphToolStripMenuItem"
         Me.ResultsGraphToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.ResultsGraphToolStripMenuItem.Text = "Yearly Habitat Results"
@@ -355,14 +355,14 @@ Partial Class MainForm
         '
         'AggregatedHabitatResultsToolStripMenuItem
         '
-        Me.AggregatedHabitatResultsToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.office_chart_scatter
+        Me.AggregatedHabitatResultsToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.office_chart_scatter
         Me.AggregatedHabitatResultsToolStripMenuItem.Name = "AggregatedHabitatResultsToolStripMenuItem"
         Me.AggregatedHabitatResultsToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.AggregatedHabitatResultsToolStripMenuItem.Text = "Summary Habitat Results"
         '
         'FloToolStripMenuItem
         '
-        Me.FloToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.office_chart_line
+        Me.FloToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.office_chart_line
         Me.FloToolStripMenuItem.Name = "FloToolStripMenuItem"
         Me.FloToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.FloToolStripMenuItem.Text = "Flow vs Habitat Chart"
@@ -374,7 +374,7 @@ Partial Class MainForm
         '
         'RawDataToolStripMenuItem
         '
-        Me.RawDataToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.insert_table2
+        Me.RawDataToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.insert_table2
         Me.RawDataToolStripMenuItem.Name = "RawDataToolStripMenuItem"
         Me.RawDataToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.RawDataToolStripMenuItem.Text = "Tabular Data"
@@ -466,7 +466,7 @@ Partial Class MainForm
         'tsbMapSelect
         '
         Me.tsbMapSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbMapSelect.Image = Global.Havasu_REFDSS.My.Resources.Resources.cursor_mouse3
+        Me.tsbMapSelect.Image = Global.Havasu_DSS.My.Resources.Resources.cursor_mouse3
         Me.tsbMapSelect.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.tsbMapSelect.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbMapSelect.Name = "tsbMapSelect"
@@ -480,7 +480,7 @@ Partial Class MainForm
         Me.tsbZoomIn.CheckOnClick = True
         Me.tsbZoomIn.CheckState = System.Windows.Forms.CheckState.Checked
         Me.tsbZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbZoomIn.Image = Global.Havasu_REFDSS.My.Resources.Resources.ZoomIn
+        Me.tsbZoomIn.Image = Global.Havasu_DSS.My.Resources.Resources.ZoomIn
         Me.tsbZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbZoomIn.Name = "tsbZoomIn"
         Me.tsbZoomIn.Size = New System.Drawing.Size(23, 22)
@@ -490,7 +490,7 @@ Partial Class MainForm
         '
         Me.tsbZoomOut.CheckOnClick = True
         Me.tsbZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbZoomOut.Image = Global.Havasu_REFDSS.My.Resources.Resources.ZoomOut
+        Me.tsbZoomOut.Image = Global.Havasu_DSS.My.Resources.Resources.ZoomOut
         Me.tsbZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbZoomOut.Name = "tsbZoomOut"
         Me.tsbZoomOut.Size = New System.Drawing.Size(23, 22)
@@ -500,7 +500,7 @@ Partial Class MainForm
         '
         Me.tsbPan.CheckOnClick = True
         Me.tsbPan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbPan.Image = Global.Havasu_REFDSS.My.Resources.Resources.pan
+        Me.tsbPan.Image = Global.Havasu_DSS.My.Resources.Resources.pan
         Me.tsbPan.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbPan.Name = "tsbPan"
         Me.tsbPan.Size = New System.Drawing.Size(23, 22)
@@ -509,7 +509,7 @@ Partial Class MainForm
         'tsbZoomFull
         '
         Me.tsbZoomFull.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbZoomFull.Image = Global.Havasu_REFDSS.My.Resources.Resources.world
+        Me.tsbZoomFull.Image = Global.Havasu_DSS.My.Resources.Resources.world
         Me.tsbZoomFull.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbZoomFull.Name = "tsbZoomFull"
         Me.tsbZoomFull.Size = New System.Drawing.Size(23, 22)
@@ -518,7 +518,7 @@ Partial Class MainForm
         'btnPrevExtent
         '
         Me.btnPrevExtent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnPrevExtent.Image = Global.Havasu_REFDSS.My.Resources.Resources.go_previous_21
+        Me.btnPrevExtent.Image = Global.Havasu_DSS.My.Resources.Resources.go_previous_21
         Me.btnPrevExtent.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnPrevExtent.Name = "btnPrevExtent"
         Me.btnPrevExtent.Size = New System.Drawing.Size(23, 22)
@@ -527,7 +527,7 @@ Partial Class MainForm
         'btnNextExtent
         '
         Me.btnNextExtent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnNextExtent.Image = Global.Havasu_REFDSS.My.Resources.Resources.go_next_2
+        Me.btnNextExtent.Image = Global.Havasu_DSS.My.Resources.Resources.go_next_2
         Me.btnNextExtent.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnNextExtent.Name = "btnNextExtent"
         Me.btnNextExtent.Size = New System.Drawing.Size(23, 22)
@@ -539,7 +539,7 @@ Partial Class MainForm
         Me.tspIdentify.CheckOnClick = True
         Me.tspIdentify.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.tspIdentify.Enabled = False
-        Me.tspIdentify.Image = Global.Havasu_REFDSS.My.Resources.Resources.info
+        Me.tspIdentify.Image = Global.Havasu_DSS.My.Resources.Resources.info
         Me.tspIdentify.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tspIdentify.Name = "tspIdentify"
         Me.tspIdentify.Size = New System.Drawing.Size(23, 22)
@@ -552,7 +552,7 @@ Partial Class MainForm
         Me.txbTitle.CheckOnClick = True
         Me.txbTitle.CheckState = System.Windows.Forms.CheckState.Checked
         Me.txbTitle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.txbTitle.Image = Global.Havasu_REFDSS.My.Resources.Resources.T
+        Me.txbTitle.Image = Global.Havasu_DSS.My.Resources.Resources.T
         Me.txbTitle.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.txbTitle.Name = "txbTitle"
         Me.txbTitle.Size = New System.Drawing.Size(23, 22)
@@ -579,7 +579,7 @@ Partial Class MainForm
         '
         Me.tsbZoomCursor.CheckOnClick = True
         Me.tsbZoomCursor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbZoomCursor.Image = Global.Havasu_REFDSS.My.Resources.Resources.ZoomIn
+        Me.tsbZoomCursor.Image = Global.Havasu_DSS.My.Resources.Resources.ZoomIn
         Me.tsbZoomCursor.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbZoomCursor.Name = "tsbZoomCursor"
         Me.tsbZoomCursor.Size = New System.Drawing.Size(23, 22)
@@ -592,7 +592,7 @@ Partial Class MainForm
         Me.tsbSelectFlowCursor.CheckOnClick = True
         Me.tsbSelectFlowCursor.CheckState = System.Windows.Forms.CheckState.Checked
         Me.tsbSelectFlowCursor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbSelectFlowCursor.Image = Global.Havasu_REFDSS.My.Resources.Resources.DownArrow1
+        Me.tsbSelectFlowCursor.Image = Global.Havasu_DSS.My.Resources.Resources.DownArrow1
         Me.tsbSelectFlowCursor.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbSelectFlowCursor.Name = "tsbSelectFlowCursor"
         Me.tsbSelectFlowCursor.Size = New System.Drawing.Size(23, 22)
@@ -607,7 +607,7 @@ Partial Class MainForm
         'tsbZoomFullHydro
         '
         Me.tsbZoomFullHydro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbZoomFullHydro.Image = Global.Havasu_REFDSS.My.Resources.Resources.world
+        Me.tsbZoomFullHydro.Image = Global.Havasu_DSS.My.Resources.Resources.world
         Me.tsbZoomFullHydro.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbZoomFullHydro.Name = "tsbZoomFullHydro"
         Me.tsbZoomFullHydro.Size = New System.Drawing.Size(23, 22)
@@ -617,7 +617,7 @@ Partial Class MainForm
         'btnPlay
         '
         Me.btnPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnPlay.Image = Global.Havasu_REFDSS.My.Resources.Resources.media_playback_start_2
+        Me.btnPlay.Image = Global.Havasu_DSS.My.Resources.Resources.media_playback_start_2
         Me.btnPlay.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(23, 22)

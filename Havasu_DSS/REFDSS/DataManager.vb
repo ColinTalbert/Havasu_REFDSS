@@ -639,9 +639,9 @@ Public Class DataManager
 
         '    Dim WC As WebClient = New WebClient()
         '    WC.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)")
-        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\HavasuDSS_data.sqlite")
+        '    WC.DownloadFile(New Uri(url), rootDownloadFolder + "\DSS_data.sqlite")
 
-        '    updateDBTo1(rootDownloadFolder + "\HavasuDSS_data.sqlite")
+        '    updateDBTo1(rootDownloadFolder + "\DSS_data.sqlite")
         'End If
 
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -739,7 +739,7 @@ Public Class DataManager
             My.Settings.OutputDataDirectory = Path.Combine(My.Settings.SessionDirectory, "Outputs")
             setSetting("OutputDataDirectory", Path.Combine(My.Settings.SessionDirectory, "Outputs"))
 
-            My.Settings.SQliteDB = Path.Combine(My.Settings.SessionDirectory, "HavasuDSS_data.sqlite")
+            My.Settings.SQliteDB = Path.Combine(My.Settings.SessionDirectory, "DSS_data.sqlite")
             Dim connectionstring As String = "Data Source=" & My.Settings.SQliteDB & ";"
             mainSQLDBConnection.ConnectionString = connectionstring
             setSetting("SQLiteDB", My.Settings.SQliteDB)

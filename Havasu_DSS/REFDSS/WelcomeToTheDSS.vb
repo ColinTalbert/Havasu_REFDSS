@@ -17,7 +17,7 @@
             My.Settings.SessionDirectory = folderBrowserDialog1.SelectedPath + "\DefaultSessionDirectory"
             My.Settings.OutputDataDirectory = folderBrowserDialog1.SelectedPath + "\DefaultSessionDirectory\Outputs"
             My.Settings.ConfigXML = folderBrowserDialog1.SelectedPath + "\DefaultSessionDirectory\config.xml"
-            My.Settings.SQliteDB = folderBrowserDialog1.SelectedPath + "\DefaultSessionDirectory\HavasuDSS_data.sqlite"
+            My.Settings.SQliteDB = folderBrowserDialog1.SelectedPath + "\DefaultSessionDirectory\DSS_data.sqlite"
             My.Settings.Save()
 
             Dim x As New ScienceBaseDownloader(Me.currentMainForm, "CoreData")

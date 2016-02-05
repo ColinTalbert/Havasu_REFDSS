@@ -558,7 +558,7 @@ Module Utilities
     End Class
 
     Public Function isSessionDirectory(strDir As String) As String
-        'Checks wether the specified directory is a valid REFDSS session directory
+        'Checks wether the specified directory is a valid DSS session directory
         'To pass it must have a config.xml file at the root, a sqliteDB called REF_data.sqlite, and a folder called Outputs
         Dim validSD As Boolean = True
         If Not Directory.Exists(strDir) Then
@@ -567,13 +567,13 @@ Module Utilities
         If Not File.Exists(Path.Combine(strDir, "config.xml")) Then
             Return "There is no 'config.xml' file in " + strDir
         End If
-        If Not File.Exists(Path.Combine(strDir, "REFDSS_data.sqlite")) Then
-            Return "There is no 'REFDSS_data.sqlite' file in " + strDir
+        If Not File.Exists(Path.Combine(strDir, "DSS_data.sqlite")) Then
+            Return "There is no 'DSS_data.sqlite' file in " + strDir
         End If
         'Check if the sqlite DB is legit
         Try
             Dim mainSQLDBConnection As New SQLite.SQLiteConnection()
-            Dim connectionstring As String = "Data Source=" & Path.Combine(strDir, "REFDSS_data.sqlite") & ";"
+            Dim connectionstring As String = "Data Source=" & Path.Combine(strDir, "DSS_data.sqlite") & ";"
             mainSQLDBConnection.ConnectionString = connectionstring
             If mainSQLDBConnection.State = ConnectionState.Closed Then
                 mainSQLDBConnection.Open()
@@ -584,7 +584,7 @@ Module Utilities
             SQLcommand.ExecuteNonQuery()
             mainSQLDBConnection.Close()
         Catch ex As Exception
-            Return "'REF_data.sqlite' is invalid"
+            Return "'DSS_data.sqlite' is invalid"
         End Try
 
         Try

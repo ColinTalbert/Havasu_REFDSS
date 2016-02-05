@@ -46,6 +46,7 @@ Public Class FlowVsHabitatChartForm
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FlowVsHabitatChartForm))
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.lblUniqueDate = New System.Windows.Forms.Label()
         Me.HabitatChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -109,6 +110,7 @@ Public Class FlowVsHabitatChartForm
         Me.Controls.Add(Me.ToolStripContainer1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HelpButton = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FlowVsHabitatChartForm"
         Me.ShowIcon = False
         Me.Text = "Result Graph"

@@ -784,7 +784,7 @@ Public Class MainForm
             mainDataManager.saveconfig()
 
             FileCopy(My.Settings.ConfigXML, Path.Combine(folderBrowserDialog1.SelectedPath, "config.xml"))
-            FileCopy(My.Settings.SQliteDB, Path.Combine(folderBrowserDialog1.SelectedPath, "HavasuDSS_data.sqlite"))
+            FileCopy(My.Settings.SQliteDB, Path.Combine(folderBrowserDialog1.SelectedPath, "DSS_data.sqlite"))
             MkDir(Path.Combine(folderBrowserDialog1.SelectedPath, "Outputs"))
 
             My.Settings.SessionDirectory = folderBrowserDialog1.SelectedPath
@@ -810,7 +810,7 @@ Public Class MainForm
             mainDataManager.saveconfig()
 
             FileCopy(Path.Combine(My.Settings.InputDataDirectory, "config.xml"), Path.Combine(folderBrowserDialog1.SelectedPath, "config.xml"))
-            FileCopy(Path.Combine(My.Settings.InputDataDirectory, "HavasuDSS_data.sqlite"), Path.Combine(folderBrowserDialog1.SelectedPath, "HavasuDSS_data.sqlite"))
+            FileCopy(Path.Combine(My.Settings.InputDataDirectory, "DSS_data.sqlite"), Path.Combine(folderBrowserDialog1.SelectedPath, "DSS_data.sqlite"))
             MkDir(Path.Combine(folderBrowserDialog1.SelectedPath, "Outputs"))
 
             My.Settings.SessionDirectory = folderBrowserDialog1.SelectedPath
@@ -876,7 +876,7 @@ Public Class MainForm
             Else
                 .InitialDirectory = Environment.SpecialFolder.MyComputer
             End If
-            .Title = "Scenario/flows database (HavasuDSS_data.sqlite)"
+            .Title = "Scenario/flows database (DSS_data.sqlite)"
             .AddExtension = True
             .DefaultExt = ".sqlite"
             .CheckFileExists = False
@@ -915,7 +915,7 @@ Public Class MainForm
                     Dim msg As String
                     msg = "There appears to be a problem with the specified configuration file:" & vbCrLf
                     msg += My.Settings.ConfigXML
-                    msg += vbCrLf & "Please navigate to a valid version of this file (Delaware_config.xml) using the file menu, 'Open' option."
+                    msg += vbCrLf & "Please navigate to a valid version of this file (config.xml) using the file menu, 'Open' option."
                     MsgBox(msg)
                     Exit Sub
                 End Try

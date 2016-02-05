@@ -272,9 +272,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Havasu_REFDSS.My.MySettings
+        Friend ReadOnly Property Settings() As Global.Havasu_DSS.My.MySettings
             Get
-                Return Global.Havasu_REFDSS.My.MySettings.Default
+                Return Global.Havasu_DSS.My.MySettings.Default
             End Get
         End Property
     End Module

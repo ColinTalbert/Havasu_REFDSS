@@ -73,7 +73,7 @@ Public Class FigureForm
         '
         'BackToolStripMenuItem
         '
-        Me.BackToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.go_previous_21
+        Me.BackToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.go_previous_21
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
         Me.BackToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.BackToolStripMenuItem.Text = "back"
@@ -81,7 +81,7 @@ Public Class FigureForm
         '
         'ForwardToolStripMenuItem
         '
-        Me.ForwardToolStripMenuItem.Image = Global.Havasu_REFDSS.My.Resources.Resources.go_next_2
+        Me.ForwardToolStripMenuItem.Image = Global.Havasu_DSS.My.Resources.Resources.go_next_2
         Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
         Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.ForwardToolStripMenuItem.Text = "forward"
