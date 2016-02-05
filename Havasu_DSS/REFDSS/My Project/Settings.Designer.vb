@@ -216,7 +216,8 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/item/56b501a7e4b0cc799980a85d?name=Full.zip")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://www.sciencebase.gov/catalog/file/get/56b501a7e4b0cc799980a85d?name=Full.z"& _ 
+            "ip")>  _
         Public ReadOnly Property SB_Full() As String
             Get
                 Return CType(Me("SB_Full"),String)
