@@ -101,7 +101,7 @@
   <applicationSettings>
     <Havasu_DSS.My.MySettings>
       <setting name="SB_Full" serializeAs="String">
-        <value>https://www.sciencebase.gov/catalog/item/56b501a7e4b0cc799980a85d?name=Full.zip</value>
+        <value>https://www.sciencebase.gov/catalog/file/get/55ad345be4b066a2492409b0?name=Full.zip</value>
       </setting>
       <setting name="db_version" serializeAs="String">
         <value>1</value>

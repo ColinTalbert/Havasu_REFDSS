@@ -42,7 +42,7 @@
       <Value Profile="(Default)">https://www.sciencebase.gov/catalog/folder/55ad3417e4b066a2492409ad</Value>
     </Setting>
     <Setting Name="SB_Full" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/file/get/55ad345be4b066a2492409b0?name=Full.zip</Value>
+      <Value Profile="(Default)">https://www.sciencebase.gov/catalog/item/56b501a7e4b0cc799980a85d?name=Full.zip</Value>
     </Setting>
     <Setting Name="db_version" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">1</Value>
