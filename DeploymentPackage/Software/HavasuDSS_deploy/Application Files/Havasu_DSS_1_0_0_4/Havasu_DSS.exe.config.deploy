@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="Havasu_DSS.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="Havasu_DSS.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <system.diagnostics>
+        <sources>
+            <!-- This section defines the logging configuration for My.Application.Log -->
+            <source name="DefaultSource" switchName="DefaultSwitch">
+                <listeners>
+                    <add name="FileLog"/>
+                    <!-- Uncomment the below section to write to the Application Event Log -->
+                    <!--<add name="EventLog"/>-->
+                </listeners>
+            </source>
+        </sources>
+        <switches>
+            <add name="DefaultSwitch" value="Information"/>
+        </switches>
+        <sharedListeners>
+            <add name="FileLog" type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" initializeData="FileLogWriter"/>
+            <!-- Uncomment the below section and replace APPLICATION_NAME with the name of your application to write to the Application Event Log -->
+            <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
+        </sharedListeners>
+    </system.diagnostics>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+  <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
+</startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System" publicKeyToken="b77a5c561934e089" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Windows.Forms" publicKeyToken="b77a5c561934e089" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Drawing" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Core" publicKeyToken="b77a5c561934e089" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Data" publicKeyToken="b77a5c561934e089" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <userSettings>
+    <Havasu_DSS.My.MySettings>
+      <setting name="InputDataDirectory" serializeAs="String">
+        <value>Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\InitialData\Inputs</value>
+      </setting>
+      <setting name="OutputDataDirectory" serializeAs="String">
+        <value>NA</value>
+      </setting>
+      <setting name="ConfigXML" serializeAs="String">
+        <value>NA</value>
+      </setting>
+      <setting name="SQliteDB" serializeAs="String">
+        <value>NA</value>
+      </setting>
+      <setting name="RelativePaths" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ApplicationTitle" serializeAs="String">
+        <value>Havasu NWR Decision Support System</value>
+      </setting>
+      <setting name="WelcomeTitle" serializeAs="String">
+        <value>Welcome to the Havasu NWR DSS</value>
+      </setting>
+      <setting name="verbose" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="SessionDirectory" serializeAs="String">
+        <value>Z:\asb\HavasuNWR\DSS_Tools\HavasuDSS\InitialData\DefaultSessionDirectoryWorkingCopy</value>
+      </setting>
+      <setting name="SB_bareInputs" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55ad349ce4b066a2492409b3?name=InputDataBare.zip</value>
+      </setting>
+      <setting name="SB_Background" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55ad4637e4b066a249242168?name=Background_nc1m.tif</value>
+      </setting>
+      <setting name="SB_InputRasters" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55ad531be4b066a249242173?name=inputs_compressed.zip</value>
+      </setting>
+      <setting name="SB_Home" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/folder/55ad3417e4b066a2492409ad</value>
+      </setting>
+    </Havasu_DSS.My.MySettings>
+  </userSettings>
+  <applicationSettings>
+    <Havasu_DSS.My.MySettings>
+      <setting name="SB_Full" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55ad345be4b066a2492409b0?name=Full.zip</value>
+      </setting>
+      <setting name="db_version" serializeAs="String">
+        <value>1</value>
+      </setting>
+      <setting name="xml_version" serializeAs="String">
+        <value>2</value>
+      </setting>
+      <setting name="db_SB" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55c0dae5e4b033ef5210449b?name=REFDSS_data.sqlite</value>
+      </setting>
+      <setting name="xml_SB" serializeAs="String">
+        <value>https://www.sciencebase.gov/catalog/file/get/55c27821e4b033ef5210682e?name=config.xml</value>
+      </setting>
+    </Havasu_DSS.My.MySettings>
+  </applicationSettings>
+</configuration>
