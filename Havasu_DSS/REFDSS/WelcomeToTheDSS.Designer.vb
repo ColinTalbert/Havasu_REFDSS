@@ -156,7 +156,7 @@ Partial Class WelcomeToTheDSS
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(52, 207)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(493, 39)
+        Me.Label9.Size = New System.Drawing.Size(488, 39)
         Me.Label9.TabIndex = 11
         Me.Label9.Text = resources.GetString("Label9.Text")
         '
